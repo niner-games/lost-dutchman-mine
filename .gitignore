@@ -1,0 +1,33 @@
+# PhpStorm project files
+.idea
+
+# NetBeans project files
+nbproject
+
+# Zend Studio project files
+.buildpath
+.project
+.settings
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Composer
+composer.phar
+
+# Composer vendor folder
+/vendor
+
+# Composer vagrant folder
+/.vagrant
+
+# Macintosh thumbnail cache
+.DS_Store
+
+# PHPUnit
+phpunit.phar
+
+# Local PHPUnit config
+/phpunit.xml
+tests/_output/*
+tests/_support/_generated
