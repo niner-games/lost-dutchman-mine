@@ -5,7 +5,7 @@
         <img src="LOGO.png" alt="Logo of Niner Games" width="300" height="300">
     </a><br />
     <a href="https://www.yiiframework.com/" target="_blank">
-        <img src="https://logos-download.com/wp-content/uploads/2019/11/Unity_Web_Player_Logo.png" width="400" alt="Unity" />
+        <img src="https://image.pngaaa.com/333/1851333-middle.png" height="195" alt="Unity" />
     </a>
 
 </p>
