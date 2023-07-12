@@ -2,15 +2,15 @@
 
 <p align="center">
     <a href="https://akademiaslaska.pl/" target="_blank">
-        <img src="LOGO.png" alt="Logo of the Silesian Academy">
+        <img src="LOGO.png" alt="Logo of Niner Games" width="300" height="300">
     </a><br />
     <a href="https://www.yiiframework.com/" target="_blank">
-        <img src="https://www.yiiframework.com/image/yii_logo_light.svg" width="400" alt="Yii Framework" />
+        <img src="https://logos-download.com/wp-content/uploads/2019/11/Unity_Web_Player_Logo.png" width="400" alt="Unity" />
     </a>
 
 </p>
 
-<h1 align="center">Niner Games Template Repository</h1><br />
+<h1 align="center">California's 49er</h1><br />
 
 This is a general overview. For technical information, follow to the [TECH.md](TECH.md) file. For legal stuff -- to [LICENSE.md](LICENSE.md).
 
