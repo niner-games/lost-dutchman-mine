@@ -5,7 +5,7 @@
         <img src="LOGO.png" alt="Logo of Niner Games" width="300" height="300">
     </a><br />
     <a href="https://www.yiiframework.com/" target="_blank">
-        <img src="https://image.pngaaa.com/333/1851333-middle.png" height="195" alt="Unity" />
+        <img src="https://store.speedtree.com/site-assets/uploads/Unity-Logo-White.png" height="195" alt="Unity" />
     </a>
 
 </p>
