@@ -1,0 +1,11 @@
+{
+  "name": "california-49er-mobile-v1",
+  "version": "0.0.1",
+  "description": "Clone of LDM game for mobiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maciej Madejczyk",
+  "license": "ISC"
+}
