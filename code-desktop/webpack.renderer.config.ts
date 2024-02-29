@@ -8,12 +8,17 @@ rules.push({
   use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
 });
 
+rules.push({
+  test: /\.(png|jp(e*)g|svg|gif)$/, 
+  use: ['file-loader'],
+});
+
 export const rendererConfig: Configuration = {
   module: {
     rules,
   },
   plugins,
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.png', '.jpeg', '.jpg', '.svg', '.gif'],
   },
 };

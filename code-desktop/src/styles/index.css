@@ -45,7 +45,18 @@
 
 body {
   font-family: 'handjet';
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.white {
+  color: #fff;
 }
