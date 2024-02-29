@@ -17,6 +17,7 @@
     "commit:plain": "git add . && git cz"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "expo": "~50.0.8",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",

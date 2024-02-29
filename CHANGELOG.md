@@ -1,9 +1,13 @@
 Lost Dutchman Mine Change Log
 =============================
 
-0.0.1 February 28 - March 12, 2024
+0.0.2 March 24, 2024
 -------------------
 
+0.0.1 March 10, 2024
+-------------------
+
+- Enh #13: Loading the game + starting new game (MadejaMaciej)
 - Enh #24: Import map assets (MadejaMaciej)
 - Enh #25: Crop and import player animations + sort images to proper directories (MadejaMaciej)
 - Enh #26: Crop and import city assets images (MadejaMaciej)
