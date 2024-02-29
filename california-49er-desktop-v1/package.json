@@ -1,7 +1,7 @@
 {
   "name": "california-49er-desktop-v1",
   "productName": "california-49er-desktop-v1",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "My Electron application description",
   "main": ".webpack/main",
   "scripts": {
