@@ -1,5 +1,7 @@
 {
   "name": "california-49er-mobile-v1",
+  "productName": "california-49er-mobile-v1",
+  "description": "Lost dutchman mine game for mobile.",
   "version": "0.1.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

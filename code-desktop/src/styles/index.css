@@ -1,6 +1,50 @@
+@font-face {
+  font-family: 'handjet-thin';
+  src: URL('../fonts/Handjet-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-extra-light';
+  src: URL('../fonts/Handjet-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet';
+  src: URL('../fonts/Handjet-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-regular';
+  src: URL('../fonts/Handjet-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-medium';
+  src: URL('../fonts/Handjet-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-semi-bold';
+  src: URL('../fonts/Handjet-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-bold';
+  src: URL('../fonts/Handjet-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-extra-bold';
+  src: URL('../fonts/Handjet-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'handjet-black';
+  src: URL('../fonts/Handjet-Black.ttf') format('truetype');
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: 'handjet';
   margin: auto;
   max-width: 38rem;
   padding: 2rem;

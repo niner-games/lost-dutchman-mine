@@ -1,8 +1,8 @@
 {
   "name": "california-49er-desktop-v1",
   "productName": "california-49er-desktop-v1",
-  "version": "0.1.2",
-  "description": "My Electron application description",
+  "version": "0.1.3",
+  "description": "Lost dutchman mine game for desktop.",
   "main": ".webpack/main",
   "scripts": {
     "dev": "electron-forge start",
