@@ -23,7 +23,8 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint \"**/*.{js,ts}\"",
     "lint:fix": "eslint --fix \"**/*.{js,ts}\"",
-    "commit": "node incrementVersion.js && git add . && git cz"
+    "commit": "node incrementVersion.js && git add . && git cz",
+    "commit:nonincremental": "git add . && git cz"
   },
   "eslintConfig": {
     "extends": [
