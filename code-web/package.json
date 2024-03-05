@@ -2,7 +2,7 @@
   "name": "california-49er-web-v1",
   "productName": "california-49er-web-v1",
   "description": "Lost dutchman mine game for web.",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@types/jest": "^27.5.2",

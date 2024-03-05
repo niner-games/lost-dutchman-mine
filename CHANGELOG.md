@@ -1,16 +1,12 @@
 Lost Dutchman Mine Change Log
 =============================
 
-0.0.2 March 15, 2024
---------------------
-
-- Enh #22: Import Google Font (MadejaMaciej)
-
-
-0.0.1 March 1, 2024
+0.0.1 February 28 - March 12, 2024
 -------------------
 
+- Enh #22: Import Google Font (MadejaMaciej)
 - Bug #8: Get rid off type errors in native app (MadejaMaciej)
+- Enh #12: Add exported images to the game (MadejaMaciej)
 - Bug #6: Get rid off file is not a module error (MadejaMaciej)
 - Enh #3: Setup initial React Native app (MadejaMaciej)
 - Enh #2: Setup initial React webapp (MadejaMaciej)
