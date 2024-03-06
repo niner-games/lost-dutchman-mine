@@ -14,7 +14,7 @@
     "lint": "eslint \"**/*.{js,ts}\"",
     "lint:fix": "eslint --fix \"**/*.{js,ts}\"",
     "commit": "node incrementVersion.js && git add . && git cz",
-    "commit:nonincremental": "git add . && git cz"
+    "commit:plain": "git add . && git cz"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.3.0",
