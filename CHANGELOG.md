@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.0.1 February 28 - March 12, 2024
 -------------------
 
+- Enh #25: Crop and import player animations + sort images to proper directories (MadejaMaciej)
 - Enh #26: Crop and import city assets images (MadejaMaciej)
 - Enh #22: Import Google Font (MadejaMaciej)
 - Bug #8: Get rid off type errors in native app (MadejaMaciej)
