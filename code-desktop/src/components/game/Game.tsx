@@ -14,7 +14,7 @@ function Game({ savedGame, setGameState, windowDimensions }: GameProps) {
                     <Background image={map} savedGame={savedGame} windowDimensions={windowDimensions} />
             } 
 
-            <Player />
+            <Player savedGame={savedGame} windowDimensions={windowDimensions} setGameState={setGameState} />
         </>
     );
 }

@@ -4,6 +4,8 @@ Lost Dutchman Mine Change Log
 0.0.2 March 24, 2024
 -------------------
 
+- Bug #39: For player moving a little bit while resizing the window of game (MadejaMaciej)
+
 0.0.1 March 10, 2024
 -------------------
 
