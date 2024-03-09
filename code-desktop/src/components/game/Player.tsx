@@ -6,7 +6,8 @@ import idleRight from "../../animations/player/right/idle.png";
 import { GameProps, AnimationsEngine } from "../../types/game";
 
 function Player({ savedGame, windowDimensions, setGameState }: GameProps) {
-    const animations: any = useMemo(() => {
+    const ratio = useMemo(() => 3.0575757575757575757575757575758, []);
+    const animations: AnimationsEngine = useMemo(() => {
         return {
             down: {
                 idle: [idleDown],
@@ -24,7 +25,8 @@ function Player({ savedGame, windowDimensions, setGameState }: GameProps) {
     }, [])
 
     return <img 
-        src={animations[savedGame.playerPosition.direction][savedGame.playerPosition.currentAnimation][savedGame.playerPosition.frame]} 
+        src={animations[savedGame.playerPosition.direction][savedGame.playerPosition.currentAnimation][savedGame.playerPosition.frame]}
+        height={windowDimensions.height/ratio}
         alt={"Player"}
         style={{ 
             position: 'absolute', 

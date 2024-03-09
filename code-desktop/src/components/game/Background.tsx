@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { BackgroundProps } from "../../types/game";
 
-const ratio = 12.7675752773;
-
 function Background({ image, savedGame, windowDimensions }: BackgroundProps) {
-    const canvasWidth = ratio * windowDimensions.height;
+    const ratio = useMemo(() => 12.7675752773, []);
+    const canvasWidth = useMemo(() => ratio * windowDimensions.height, [windowDimensions]);
 
     return <img 
     src={image} 
