@@ -13,7 +13,8 @@ function Background({ image, savedGame, windowDimensions }: BackgroundProps) {
     style={{ 
         position: 'absolute', 
         transition: 'linear',
-        left: -(canvasWidth * savedGame.playerPosition.x),
+        left: -(canvasWidth * savedGame.playerPosition.x) + windowDimensions.width/2,
+        top: '0',
     }}
 />
 }

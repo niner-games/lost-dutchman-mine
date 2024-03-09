@@ -28,7 +28,8 @@ function Main() {
             x: 0.5,
             y: 0,
             direction: 'down',
-            currentAnimation: 'idle'
+            currentAnimation: 'idle',
+            frame: 0,
         }
     });
     const [language, setLanguage] = useState('en');
@@ -58,7 +59,7 @@ function Main() {
 
             const id = setTimeout(() => {
                 setWindowDimensions(getWindowDimensions());
-            }, 100);
+            }, 10);
             
             timeoutId = id;
         }
