@@ -3,6 +3,7 @@ import idleDown from "../../animations/player/down/idle.png";
 import idleUp from "../../animations/player/up/idle.png";
 import idleLeft from "../../animations/player/left/idle.png";
 import idleRight from "../../animations/player/right/idle.png";
+import { setText } from "../../context/language";
 import { GameProps, AnimationsEngine } from "../../types/game";
 
 function Player({ savedGame, windowDimensions, setGameState }: GameProps) {
@@ -27,7 +28,7 @@ function Player({ savedGame, windowDimensions, setGameState }: GameProps) {
     return <img 
         src={animations[savedGame.playerPosition.direction][savedGame.playerPosition.currentAnimation][savedGame.playerPosition.frame]}
         height={windowDimensions.height/ratio}
-        alt={"Player"}
+        alt={setText('player')}
         style={{ 
             position: 'absolute', 
             transition: 'linear', 

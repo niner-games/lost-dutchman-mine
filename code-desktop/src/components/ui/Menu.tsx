@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import Language from "./Language";
 import MenuButton from "../common/MenuButton";
 import Title from "../common/Title";
+import { setText } from "../../context/language";
 import { MenuProps } from "../../types/menu";
 
 function Menu({ loadGame, setScreen, language, setLanguage }: MenuProps) {
@@ -15,10 +16,10 @@ function Menu({ loadGame, setScreen, language, setLanguage }: MenuProps) {
 
     return (
         <div>
-            <Title classes="center white" text="Main Menu" />
+            <Title classes="center white" text={setText('mainMenu')} />
             <Language language={language} setLanguage={setLanguage} />
-            <MenuButton clickHandler={startNewGame} text={'Start game'} />
-            <MenuButton clickHandler={quitGame} text={'Quit game'} />
+            <MenuButton clickHandler={startNewGame} text={setText('startGame')} />
+            <MenuButton clickHandler={quitGame} text={setText('quitGame')} />
         </div>
     )
 }

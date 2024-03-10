@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import Menu from "./ui/Menu";
 import Game from "./game/Game";
 import splash from "../images/ui/cover.jpg";
+import { setText } from "../context/language";
+import { SavedGame } from "../types/game";
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -23,7 +25,7 @@ function Main() {
     const [screen, setScreen] = useState('menu');
     const [gameState, setGameState] = useState({
         location: 'town',
-        backgroundAlt: 'Town background',
+        backgroundAlt: setText('bgTown'),
         playerPosition: {
             x: 0.5,
             y: 0,
@@ -32,10 +34,33 @@ function Main() {
             frame: 0,
         }
     });
-    const [language, setLanguage] = useState('en');
+    const [language, setLanguage] = useState(window.localStorage.getItem('language') || 'en');
+    const [error, setError] = useState('');
 
-    const loadGame = useCallback(() => {
+    const saveGame = useCallback((gameName: string) => {
+        try {
+            const stringifiedGame = JSON.stringify(gameState);
+            window.localStorage.setItem(`${gameName}`, stringifiedGame);
+        } catch (e) {
+            setError(setText('couldNotSave'));
+        }
+    }, []);
 
+    const loadGame = useCallback((gameName: string) => {
+        const gameToLoad: string | undefined = window.localStorage.getItem(gameName);
+
+        if (!gameToLoad) {
+            setError(setText('couldNotLoad'));
+            return;
+        }
+
+        try {
+            const game: SavedGame = JSON.parse(gameToLoad);
+            setGameState(game);
+        } catch(e) {
+            setError(setText('fileCorrupted'));
+            return;
+        }
     }, []);
 
     const setSplashInterval = useCallback(() => {
@@ -45,7 +70,7 @@ function Main() {
             const deltaModifier = delta / 100
             setLastUpdate(now);
             setSplashScreenOpacity(splashScreenOpacity + (0.02 * deltaModifier));
-        }, 20)
+        }, 20);
     }, [])
 
     useEffect(() => {
@@ -76,7 +101,11 @@ function Main() {
                 clearInterval(i);
             }
         }
-    }, [splashScreenOpacity])
+    }, [splashScreenOpacity]);
+
+    useEffect(() => {
+        document.title = setText('title');
+    }, [language])
 
     if (splashScreenOpacity < 1) {
         return (
@@ -91,7 +120,7 @@ function Main() {
     }
 
     if (screen === 'game') {
-        return <Game savedGame={gameState} setGameState={setGameState} windowDimensions={windowDimensions} />;
+        return <Game savedGame={gameState} saveGame={saveGame} setGameState={setGameState} windowDimensions={windowDimensions} />;
     }
 
     return <Menu loadGame={loadGame} setScreen={setScreen} language={language} setLanguage={setLanguage} />;

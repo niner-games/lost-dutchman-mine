@@ -6,7 +6,7 @@ type PlayerPosition = {
     frame: number;
 };
 
-type SavedGame = {
+export type SavedGame = {
     location: string;
     backgroundAlt: string;
     playerPosition: PlayerPosition;
@@ -47,3 +47,7 @@ export interface BackgroundProps extends GameAndDimension {
 export interface GameProps extends GameAndDimension {
     setGameState:React.Dispatch<React.SetStateAction<SavedGame>>;
 };
+
+export interface SaveGameProps extends GameProps {
+    saveGame:React.Dispatch<React.SetStateAction<string>>;
+}
