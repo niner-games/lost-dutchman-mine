@@ -7,7 +7,9 @@ assignees: trejder
 
 ---
 
-Repeated title or possibly a summary of the description.
+## Overview
+
+When  then 
 
 ## Necessary steps
 
@@ -16,11 +18,11 @@ Repeated title or possibly a summary of the description.
 3. Scroll to _five_.
 4. See _six_.
 
-## Expected effects
+## Expected results
 
 What should happen.
 
-## Real effects
+## Actual results
 
 What is actually happening.
 
