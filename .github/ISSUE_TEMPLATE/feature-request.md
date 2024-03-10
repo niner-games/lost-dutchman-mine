@@ -2,8 +2,8 @@
 name: Feature request
 about: Some new functionality
 title: 
-labels: enhancement
-assignees: trejder
+labels: feature
+assignees: MadejaMaciej
 
 ---
 
@@ -19,7 +19,8 @@ Please, implement
 
 ## Acceptance Criteria
 
-- **Given** what
+- **Given that** what
+- **And that** what
 - **When** what
 - **And** what
 - **Then** what
