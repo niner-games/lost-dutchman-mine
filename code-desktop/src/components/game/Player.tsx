@@ -7,7 +7,7 @@ import { setText } from "../../context/language";
 import { GameProps, AnimationsEngine } from "../../types/game";
 
 function Player({ savedGame, windowDimensions, setGameState }: GameProps) {
-    const ratio = useMemo(() => 3.0575757575757575757575757575758, []);
+    const ratio = useMemo(() => 3.0, []);
     const animations: AnimationsEngine = useMemo(() => {
         return {
             down: {
@@ -27,12 +27,12 @@ function Player({ savedGame, windowDimensions, setGameState }: GameProps) {
 
     return <img 
         src={animations[savedGame.playerPosition.direction][savedGame.playerPosition.currentAnimation][savedGame.playerPosition.frame]}
-        height={windowDimensions.height/ratio}
+        height={(windowDimensions.height * 0.6 ) / ratio}
         alt={setText('player')}
         style={{ 
             position: 'absolute', 
             transition: 'linear', 
-            top: '80%',
+            top: `${savedGame.playerPosition.y * 100}%`,
             left: '50%',
             transform: 'translate(-50%, -50%)',
         }}

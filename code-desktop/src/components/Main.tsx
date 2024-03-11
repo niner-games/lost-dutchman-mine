@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { v4 } from "uuid";
 import Menu from "./ui/Menu";
 import Game from "./game/Game";
 import splash from "../images/ui/cover.jpg";
@@ -24,11 +25,13 @@ function Main() {
     });
     const [screen, setScreen] = useState('menu');
     const [gameState, setGameState] = useState({
+        uuid: v4(),
+        saveName: '',
         location: 'town',
         backgroundAlt: setText('bgTown'),
         playerPosition: {
             x: 0.5,
-            y: 0,
+            y: 0.47,
             direction: 'down',
             currentAnimation: 'idle',
             frame: 0,
@@ -38,11 +41,31 @@ function Main() {
     const [error, setError] = useState('');
 
     const saveGame = useCallback((gameName: string) => {
-        try {
-            const stringifiedGame = JSON.stringify(gameState);
-            window.localStorage.setItem(`${gameName}`, stringifiedGame);
-        } catch (e) {
-            setError(setText('couldNotSave'));
+        const gamesToLoad: string | undefined = window.localStorage.getItem('saved-games');
+
+        if (gamesToLoad) {
+            try {
+                let games: SavedGame[] = JSON.parse(gamesToLoad);
+                let alreadySaved = false;
+                games = games.map(game => {
+                    if (game.uuid !== gameState.uuid) return game;
+                    else {
+                        alreadySaved = true;
+                        return { ...gameState, saveName: gameName};
+                    }
+                })
+
+                if (!alreadySaved) {
+                    games.push({ ...gameState, saveName: gameName})
+                }
+
+                const stringifiedGames = JSON.stringify(games);
+                window.localStorage.setItem('saved-games', stringifiedGames);
+            } catch(e) {
+                setError(setText('couldNotSave'));
+            }
+        } else {
+            window.localStorage.setItem('saved-games', JSON.stringify([{ ...gameState, saveName: gameName }]));
         }
     }, []);
 

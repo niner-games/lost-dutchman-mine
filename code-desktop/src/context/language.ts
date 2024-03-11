@@ -8,5 +8,9 @@ const languageContext: any = {
 
 export const setText = (text: string) => {
     const lang = window.localStorage.getItem('language') || 'en';
+    if (!languageContext[lang]) {
+        return languageContext.en[text];
+    }
+
     return languageContext[lang][text] || languageContext.en[text];
 }
