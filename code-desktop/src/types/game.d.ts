@@ -7,6 +7,8 @@ type PlayerPosition = {
 };
 
 export type SavedGame = {
+    uuid: string;
+    saveName: string;
     location: string;
     backgroundAlt: string;
     playerPosition: PlayerPosition;

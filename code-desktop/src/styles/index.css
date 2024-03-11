@@ -60,3 +60,7 @@ body {
 .white {
   color: #fff;
 }
+
+.board-pickaxe {
+  width: 70px;
+}

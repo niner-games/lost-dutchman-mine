@@ -4,9 +4,10 @@ Lost Dutchman Mine Change Log
 0.0.2 March 24, 2024
 -------------------
 
+- Enh #15: Added save game possibility (MadejaMaciej)
 - Enh #27: Implement initial translation system (MadejaMaciej)
-- Bug #40: For player resizing with change of window height (MadejaMaciej)
-- Bug #39: For player moving a little bit while resizing the window of game (MadejaMaciej)
+- Bug #40: Fix player resizing with change of window height (MadejaMaciej)
+- Bug #39: Fix player moving a little bit while resizing the window of game (MadejaMaciej)
 
 0.0.1 March 10, 2024
 -------------------
