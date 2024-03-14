@@ -64,3 +64,31 @@ body {
 .board-pickaxe {
   width: 70px;
 }
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.bottom {
+  bottom: 20px;
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
+}
+
+.top {
+  top: 20px;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
