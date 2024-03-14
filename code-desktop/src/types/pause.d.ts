@@ -1,10 +1,13 @@
 import { SavedGame } from "./game";
 
 export type SaveListProps = {
-    saves: SavedGame[]
+    saves: SavedGame[],
+    setChosenGame: Function,
 }
 
 export type PauseScreenProps = {
+    inMenu?: boolean,
     setOpened: Function, 
-    saveGame: Function, 
+    loadGame: Function, 
+    saveGame?: Function, 
 }

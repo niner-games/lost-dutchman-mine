@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { v4 } from "uuid";
 import Menu from "./ui/Menu";
+import PauseScreen from "./ui/PauseScreen";
 import Game from "./game/Game";
 import splash from "../images/ui/cover.jpg";
 import { setText } from "../context/language";
@@ -51,12 +52,14 @@ function Main() {
                     if (game.uuid !== gameState.uuid) return game;
                     else {
                         alreadySaved = true;
+                        setGameState({ ...gameState, saveName: gameName});
                         return { ...gameState, saveName: gameName};
                     }
                 })
 
                 if (!alreadySaved) {
                     games.push({ ...gameState, saveName: gameName})
+                    setGameState({ ...gameState, saveName: gameName});
                 }
 
                 const stringifiedGames = JSON.stringify(games);
@@ -67,24 +70,29 @@ function Main() {
         } else {
             window.localStorage.setItem('saved-games', JSON.stringify([{ ...gameState, saveName: gameName }]));
         }
-    }, []);
+    }, [gameState, setGameState, setError]);
 
-    const loadGame = useCallback((gameName: string) => {
-        const gameToLoad: string | undefined = window.localStorage.getItem(gameName);
-
-        if (!gameToLoad) {
+    const loadGame = useCallback((uuid: string) => {
+        const gamesToLoad: string | undefined = window.localStorage.getItem('saved-games');
+        if (!gamesToLoad) {
             setError(setText('couldNotLoad'));
             return;
         }
 
         try {
-            const game: SavedGame = JSON.parse(gameToLoad);
-            setGameState(game);
+            const games: SavedGame[] = JSON.parse(gamesToLoad);
+
+            games.forEach((game) => {
+                if (game.uuid === uuid) {
+                    setGameState(game);
+                    setScreen('game');
+                }
+            })
         } catch(e) {
             setError(setText('fileCorrupted'));
             return;
         }
-    }, []);
+    }, [gameState, setScreen, setError]);
 
     const setSplashInterval = useCallback(() => {
         setInterval(() => {
@@ -143,7 +151,11 @@ function Main() {
     }
 
     if (screen === 'game') {
-        return <Game savedGame={gameState} saveGame={saveGame} setGameState={setGameState} windowDimensions={windowDimensions} />;
+        return <Game savedGame={gameState} saveGame={saveGame} setGameState={setGameState} windowDimensions={windowDimensions} loadGame={loadGame} />;
+    }
+
+    if (screen === 'load') {
+        return <PauseScreen inMenu={true} setOpened={setScreen} loadGame={loadGame} />;
     }
 
     return <Menu loadGame={loadGame} setScreen={setScreen} language={language} setLanguage={setLanguage} />;

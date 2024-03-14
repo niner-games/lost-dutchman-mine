@@ -7,12 +7,12 @@ import { SaveGameProps } from "../../types/game";
 import map from "../../images/map/map.png";
 import town from "../../images/map/town.png";
 
-function Game({ savedGame, setGameState, windowDimensions, saveGame }: SaveGameProps) {
+function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }: SaveGameProps) {
     const [opened, setOpened] = useState('game');
 
     if (opened === 'pause') {
         return (
-            <PauseScreen setOpened={setOpened} saveGame={saveGame} />
+            <PauseScreen setOpened={setOpened} saveGame={saveGame} loadGame={loadGame} />
         )
     }
 

@@ -1,11 +1,10 @@
 import React, { useCallback, useState, useEffect } from "react";
 import SaveList from "./SaveList";
-import { SavedGame } from "../../types/game";
 import { PauseScreenProps } from "../../types/pause";
 
-function PauseScreen({ setOpened, saveGame }: PauseScreenProps) {
+function PauseScreen({ setOpened, saveGame, inMenu = false, loadGame }: PauseScreenProps) {
     const [savedGames, setSavedGames] = useState([]);
-    const [choosenGame, setChoosenGame] = useState('');
+    const [chosenGame, setChosenGame] = useState('');
     const [gameName, setGameName] = useState('');
 
     const getSavedGames = useCallback(() => {
@@ -28,21 +27,32 @@ function PauseScreen({ setOpened, saveGame }: PauseScreenProps) {
 
     return (
         <div>
-            <SaveList saves={savedGames} />
-            <button onClick={() => {
+            <SaveList saves={savedGames} setChosenGame={setChosenGame} />
+            { inMenu ? null :
+                <>
+                    <button onClick={() => {
+                        setOpened('game');
+                        setChosenGame('');
+                    }}>Resume game</button>
+                    <button disabled={gameName === ''} onClick={() => {
+                        saveGame(gameName);
+                        getSavedGames();
+                        setChosenGame('');
+                    }}>Save game</button>
+                     <input type="text" value={gameName} onChange={(e) => {
+                        setGameName(e.target.value);
+                    }}/>
+                </>  
+            }
+            <button disabled={chosenGame === ''} onClick={() => {
+                loadGame(chosenGame);
                 setOpened('game');
-            }}>Resume game</button>
-            <button disabled={gameName === ''} onClick={() => {
-                saveGame(gameName);
-                getSavedGames();
-            }}>Save game</button>
-            <input type="text" value={gameName} onChange={(e) => {
-                setGameName(e.target.value);
-            }}/>
-            <button disabled={choosenGame === ''}>Load game</button>
-            <button disabled={choosenGame === ''}>Remove game</button>
+            }}>Load game</button>
+            <button disabled={chosenGame === ''}>Remove game</button>
             <button onClick={() => {
-                
+                if (inMenu) {
+                    setOpened('menu');
+                }
             }}>Exit to menu</button>
             <button onClick={() => {
                 window.close();
