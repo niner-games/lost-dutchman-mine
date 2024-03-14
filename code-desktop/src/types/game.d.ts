@@ -51,5 +51,6 @@ export interface GameProps extends GameAndDimension {
 };
 
 export interface SaveGameProps extends GameProps {
-    saveGame:React.Dispatch<React.SetStateAction<string>>;
+    saveGame:Function;
+    loadGame:Function;
 }

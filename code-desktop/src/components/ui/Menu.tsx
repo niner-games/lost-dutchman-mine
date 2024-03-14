@@ -14,12 +14,16 @@ function Menu({ loadGame, setScreen, language, setLanguage }: MenuProps) {
         setScreen('game')
     }, [])
 
+    const loadGames = useCallback(() => {
+        setScreen('load')
+    }, [])
+
     return (
         <div>
             <Title classes="center white" text={setText('mainMenu')} />
             <Language language={language} setLanguage={setLanguage} />
             <MenuButton clickHandler={startNewGame} text={setText('startGame')} />
-            <MenuButton clickHandler={() => {}} text={'Load game'} />
+            <MenuButton clickHandler={loadGames} text={'Load game'} />
             <MenuButton clickHandler={quitGame} text={setText('quitGame')} />
         </div>
     )
