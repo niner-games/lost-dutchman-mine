@@ -14,7 +14,7 @@ export type SavedGame = {
     playerPosition: PlayerPosition;
 };
 
-type WindowDimensions = {
+export type WindowDimensions = {
     height: number;
     width: number;
 };

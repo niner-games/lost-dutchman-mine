@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.0.2 March 24, 2024
 -------------------
 
+- Enh #43: Enhanced startup screen adding version and music (MadejaMaciej)
 - Enh #16: Added load game possibility (MadejaMaciej)
 - Enh #15: Added save game possibility (MadejaMaciej)
 - Enh #27: Implement initial translation system (MadejaMaciej)

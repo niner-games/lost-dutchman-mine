@@ -2,7 +2,7 @@ import React from "react";
 import { TextProps } from "../../types/menu";
 
 function Title({ text, classes = '' }: TextProps) {
-    return <h2 className={classes}>{text}</h2>
+    return <h1 className={classes}>{text}</h1>
 }
 
 export default Title;

@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 import Menu from "./ui/Menu";
 import PauseScreen from "./ui/PauseScreen";
 import Game from "./game/Game";
-import splash from "../images/ui/cover.jpg";
+import SplashScreen from "./ui/SplashScreen";
 import { setText } from "../context/language";
 import { SavedGame } from "../types/game";
 
@@ -100,7 +100,7 @@ function Main() {
             const delta = now - lastUpdate;
             const deltaModifier = delta / 100
             setLastUpdate(now);
-            setSplashScreenOpacity(splashScreenOpacity + (0.02 * deltaModifier));
+            setSplashScreenOpacity(splashScreenOpacity + (0.01 * deltaModifier));
         }, 20);
     }, [])
 
@@ -121,7 +121,9 @@ function Main() {
         }
       
         window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        };
     });
 
     useEffect(() => {
@@ -139,15 +141,7 @@ function Main() {
     }, [language])
 
     if (splashScreenOpacity < 1) {
-        return (
-            <img 
-                src={splash} 
-                alt="Background splash screen" 
-                width={windowDimensions.width} 
-                height={windowDimensions.height} 
-                style={{ opacity: splashScreenOpacity, transition: 'linear' }}
-            />
-        )
+        return <SplashScreen windowDimensions={windowDimensions} opacity={splashScreenOpacity} setSplashScreen={setSplashScreenOpacity} />;
     }
 
     if (screen === 'game') {

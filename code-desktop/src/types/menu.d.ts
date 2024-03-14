@@ -1,5 +1,5 @@
 import React from "react";
-import { SavedGame } from "./game"
+import { SavedGame, WindowDimensions } from "./game"
 
 export type TextProps = {
     text: string,
@@ -16,6 +16,12 @@ export interface InGameMenuProps extends BottomMenuButtonsProps {
 
 export interface MenuButtonProps extends TextProps {
     clickHandler: MouseEventHandler<HTMLButtonElement>,
+}
+
+export type SplashScreenProps = {
+    windowDimensions: WindowDimensions,
+    opacity: number,
+    setSplashScreen: Function,
 }
 
 export type DownMenuButtonProps = {
