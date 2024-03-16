@@ -5,10 +5,11 @@ import introSound from "../../sounds/intro.wav";
 import { version } from "../../../package.json";
 import { SplashScreenProps } from "../../types/menu";
 
-function SplashScreen({ windowDimensions, opacity, setSplashScreen }: SplashScreenProps) {
+function SplashScreen({ windowDimensions, opacity, setScreen }: SplashScreenProps) {
     useEffect(() => {
+        // On any press even, change splash screen to menu
         const handleKeyPress = () => {
-            setSplashScreen(1.0);
+            setScreen('menu');
         }
 
         document.addEventListener('keydown', handleKeyPress);
@@ -18,7 +19,7 @@ function SplashScreen({ windowDimensions, opacity, setSplashScreen }: SplashScre
             document.removeEventListener('keydown', handleKeyPress);
             document.removeEventListener('mousedown', handleKeyPress);
         }
-    }, [setSplashScreen]);
+    }, [setScreen]);
 
     return (
         <div>
@@ -30,7 +31,7 @@ function SplashScreen({ windowDimensions, opacity, setSplashScreen }: SplashScre
                 style={{ opacity, transition: 'linear' }}
             />
 
-            <audio autoPlay loop src={introSound}></audio>
+            <audio autoPlay src={introSound} onEnded={() => setScreen('menu')}></audio>
             <Subtitle text="Press any key to start" classes="white absolute bottom right z-index-1" />
             <Subtitle text={`Game version: ${version}`} classes="white absolute bottom left z-index-1" />
         </div>

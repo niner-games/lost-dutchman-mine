@@ -2,16 +2,18 @@ import React, { useCallback, useState, useEffect } from "react";
 import SaveList from "./SaveList";
 import { PauseScreenProps } from "../../types/pause";
 
-function PauseScreen({ setOpened, saveGame, inMenu = false, loadGame }: PauseScreenProps) {
+function PauseScreen({ setOpened, saveGame, inMenu = false, loadGame, initialGameName = '' }: PauseScreenProps) {
     const [savedGames, setSavedGames] = useState([]);
     const [chosenGame, setChosenGame] = useState('');
-    const [gameName, setGameName] = useState('');
+    const [gameName, setGameName] = useState(initialGameName);
 
+    // Get list of saved games from local storage
     const getSavedGames = useCallback(() => {
         const gameToLoad: string | undefined = window.localStorage.getItem('saved-games');
 
         if (!gameToLoad) {
             setSavedGames([]);
+            return;
         }
 
         try {

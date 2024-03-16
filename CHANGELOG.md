@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.0.2 March 24, 2024
 -------------------
 
+- Enh #30: Moving left and right in town (MadejaMaciej)
 - Enh #52: Adjusted font properties (MadejaMaciej)
 - Enh #51: Changed font to Pixelify (MadejaMaciej)
 - Enh #43: Enhanced startup screen adding version and music (MadejaMaciej)
