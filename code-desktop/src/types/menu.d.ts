@@ -21,7 +21,7 @@ export interface MenuButtonProps extends TextProps {
 export type SplashScreenProps = {
     windowDimensions: WindowDimensions,
     opacity: number,
-    setSplashScreen: Function,
+    setScreen: Function,
 }
 
 export type DownMenuButtonProps = {
@@ -38,6 +38,5 @@ export type LanguageProps = {
 }
 
 export interface MenuProps extends LanguageProps {
-    loadGame: Function;
     setScreen: React.Dispatch<React.SetStateAction<string>>;
 };

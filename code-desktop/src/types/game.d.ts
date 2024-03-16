@@ -1,9 +1,6 @@
 type PlayerPosition = {
     x: number;
     y: number;
-    direction: string;
-    currentAnimation: string;
-    frame: number;
 };
 
 export type SavedGame = {
@@ -42,9 +39,14 @@ type RightAnimation = {
 
 export type AnimationsEngine = any;
 
-export interface BackgroundProps extends GameAndDimension {
-    image: string;
-};
+export type Directions = {
+    idx: number, 
+    name: string, 
+    vec: {
+        x: number, 
+        y: number
+    }
+}
 
 export interface GameProps extends GameAndDimension {
     setGameState:React.Dispatch<React.SetStateAction<SavedGame>>;

@@ -5,7 +5,7 @@ import Title from "../common/Title";
 import { setText } from "../../context/language";
 import { MenuProps } from "../../types/menu";
 
-function Menu({ loadGame, setScreen, language, setLanguage }: MenuProps) {
+function Menu({ setScreen, language, setLanguage }: MenuProps) {
     const quitGame = useCallback(() => {
         window.close();
     }, []);
