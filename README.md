@@ -10,10 +10,12 @@
     <a href="https://reactnative.dev/" target="_blank">
         <img width="455" height="70" src="https://cdn.freebiesupply.com/logos/large/2x/electron-4-logo-png-transparent.png" alt="Logo of React Native framework" />
     </a><br /><br /><br />
-    <a href="https://github.com/niner-games/game-react-lost-dutchman-mine/wiki" target="_blank">
-        <img width="777" height="120" src="https://github.com/niner-games/game-react-lost-dutchman-mine/assets/2903392/c68b54b2-e2ab-48b0-861c-860d340959fe" alt="Logo of Lost Dutchman Mine game" />
-    </a>
 </p>
+<h1 align="center">
+    <a href="https://github.com/niner-games/game-react-lost-dutchman-mine/wiki" target="_blank">
+        <img width="777" height="120" src="https://github.com/niner-games/lost-dutchman-mine/assets/2903392/c68b54b2-e2ab-48b0-861c-860d340959fe" alt="Logo of Lost Dutchman Mine game" />
+    </a>
+</h1>
 
 If you are at least in your forties and you ever had your own IBM, Tandy, Amiga or Atari ST... If you still remember what 
 was the difference between CGA, EGA and VGA graphic cards... You could possible heard about "Lost Dutchman Mine" game published
