@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://ninergames.com/" target="_blank">
-        <img width="300" height="300" src="https://github.com/niner-games/game-react-lost-dutchman-mine/assets/2903392/62e0296d-e1a3-4b0c-99ba-d8ac4fc716fe" alt="Logo of Niner Games company">
+        <img width="437" height="300" src="https://github.com/niner-games/lost-dutchman-mine/assets/2903392/721d35d7-3da3-4438-a373-a6954603aae9" alt="Logo of Niner Games company">
     </a><br />
     <a href="https://www.electronjs.org/" target="_blank">
         <img width="304" height="200" src="https://www.datocms-assets.com/45470/1631026680-logo-react-native.png" alt="Logo of Electron framework" />
@@ -28,13 +28,4 @@ beautiful game, one of the first survival games in the game industry history.
 
 ----
 
-To feel this climax, [play an on-line version of the original game](https://www.myabandonware.com/game/lost-dutchman-mine-p0/play-p0)
-or [download its DOS executables](https://www.myabandonware.com/game/lost-dutchman-mine-p0#download) and run it in 
-[DosBox](https://www.dosbox.com/wiki/Basic_Setup_and_Installation_of_DosBox).
-
-Or you can watch a short movie below (or [the entire gameplay](https://vimeo.com/manage/videos/818072311) at Vimeo):
-
-https://github.com/niner-games/game-react-lost-dutchman-mine/assets/2903392/9dfdea6c-f91f-4cf2-8b95-574ec7391811
-
-Ultimately, [visit our Wiki](https://github.com/niner-games/game-react-lost-dutchman-mine/wiki) to learn both about _Niner 
-Games reboot_ or the fabulous _Magnetic Images predecessor_.
+Please, follow to [Wiki](https://github.com/niner-games/lost-dutchman-mine/wiki) to get all the news, gossips and information.
