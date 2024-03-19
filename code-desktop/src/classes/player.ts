@@ -261,8 +261,8 @@ class Player {
     };
     
     // Function to get what player should do on mouse click
-    mouseMoveHandler = (e: MouseEvent, width: number, canvasWidth: number) => {
-        if (!this.paused) {
+    mouseMoveHandler = (e: any, width: number, canvasWidth: number) => {
+        if (!this.paused && e.target.id === 'game-canvas') {
             const screenAt = canvasWidth * this.x;
             const center = width / 2;
             const playerPoint = (screenAt + e.clientX - center) / canvasWidth;
@@ -279,7 +279,7 @@ class Player {
         this.stopWalkingSound();
     };
 
-    stopPause = () => {
+    stopPause = () => { 
         this.paused = false;
     };
 }
