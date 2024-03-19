@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { v4 } from "uuid";
 import Menu from "./ui/Menu";
 import PauseScreen from "./ui/PauseScreen";
@@ -30,7 +30,7 @@ function Main() {
         uuid: v4(),
         saveName: '',
         location: 'town',
-        backgroundAlt: setText('bgTown'),
+        backgroundAlt: 'bgTown',
         playerPosition: {
             x: player.getX(),
             y: player.getY()
@@ -68,7 +68,7 @@ function Main() {
                 const stringifiedGames = JSON.stringify(games);
                 window.localStorage.setItem('saved-games', stringifiedGames);
             } catch(e) {
-                setError(setText('couldNotSave'));
+                setError('couldNotSave');
             }
         } else {
             // If there are no saved games, create new array and add new game to it
@@ -83,7 +83,7 @@ function Main() {
 
         // If there are no saved games, show error message
         if (!gamesToLoad) {
-            setError(setText('couldNotLoad'));
+            setError('couldNotLoad');
             return;
         }
 
@@ -101,7 +101,7 @@ function Main() {
                 }
             })
         } catch(e) {
-            setError(setText('fileCorrupted'));
+            setError('fileCorrupted');
             return;
         }
     }, [gameState, setScreen, setError]);
@@ -156,7 +156,7 @@ function Main() {
 
     useEffect(() => {
         // Set document title based on language
-        document.title = setText('title');
+        document.title = 'Lost Dutchman Mine';
     }, [language])
 
     if (screen === 'splash') {

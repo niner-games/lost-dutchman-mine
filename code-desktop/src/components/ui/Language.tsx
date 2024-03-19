@@ -10,7 +10,7 @@ function Language({ language, setLanguage }: LanguageProps) {
 
     return (
         <>
-            <label htmlFor="language" className="white">{setText('language')}</label>
+            <label htmlFor="language" className="white">{'Language'}</label>
             <select name="language" onChange={(e) => chooseAndSaveLanguage(e.target.value)} value={language}>
                 <option value={'en'}>EN</option>
                 <option value={'pl'}>PL</option>
