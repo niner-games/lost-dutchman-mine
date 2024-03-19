@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import GameMenu from "../ui/GameMenu";
 import PauseScreen from "../ui/PauseScreen";
 import { mainLoop } from "../../services/game";

@@ -6,7 +6,7 @@ function GameTitle() {
     return (
         <div>
             <h2>
-                {setText('title')}
+                {'Lost Dutchman Mine'}
             </h2>
         </div>
     )

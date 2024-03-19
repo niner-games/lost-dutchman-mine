@@ -7,9 +7,7 @@
   "scripts": {
     "dev": "electron-forge start",
     "package": "electron-forge package",
-    "build:windows": "electron-forge package -- --platform win32",
-    "build:mac": "electron-forge package -- --platform darwin",
-    "build:unix": "electron-forge package -- --platform linux",
+    "build": "electron-forge make",
     "publish": "electron-forge publish",
     "test": "jest",
     "test:coverage": "jest --coverage",

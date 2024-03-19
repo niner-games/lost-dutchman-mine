@@ -20,11 +20,11 @@ function Menu({ setScreen, language, setLanguage }: MenuProps) {
 
     return (
         <div>
-            <Title classes="center white" text={setText('mainMenu')} />
+            <Title classes="center white" text={'Main Menu'} />
             <Language language={language} setLanguage={setLanguage} />
-            <MenuButton clickHandler={startNewGame} text={setText('startGame')} />
+            <MenuButton clickHandler={startNewGame} text={'Start Game'} />
             <MenuButton clickHandler={loadGames} text={'Load game'} />
-            <MenuButton clickHandler={quitGame} text={setText('quitGame')} />
+            <MenuButton clickHandler={quitGame} text={'Quit game'} />
         </div>
     )
 }
