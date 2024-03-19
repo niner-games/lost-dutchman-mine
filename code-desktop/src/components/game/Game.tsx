@@ -59,7 +59,7 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
         <div>
             <canvas style={{
                 marginTop: '20px',
-            }} ref={canvasRef} />
+            }} ref={canvasRef} id="game-canvas" />
             <GameMenu setOpened={setOpened} gameState={savedGame} />
         </div>
     )

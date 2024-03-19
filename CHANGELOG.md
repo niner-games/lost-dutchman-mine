@@ -1,9 +1,15 @@
 Lost Dutchman Mine Change Log
 =============================
 
+0.0.3 April 7, 2024
+-------------------
+
+
+
 0.0.2 March 24, 2024
 -------------------
 
+- Bug #66: Fix player moving in menu and pause screen (MadejaMaciej)
 - Enh #30: Moving left and right in town (MadejaMaciej)
 - Enh #52: Adjusted font properties (MadejaMaciej)
 - Enh #51: Changed font to Pixelify (MadejaMaciej)
