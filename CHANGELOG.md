@@ -9,6 +9,7 @@ Lost Dutchman Mine Change Log
 0.0.2 March 24, 2024
 -------------------
 
+- Bug #76: Fix Linux build not working (MadejaMaciej)
 - Enh #74: Facility for building multiple app versions by one command (MadejaMaciej)
 - Bug #72: Fix squirrel not installing app (MadejaMaciej)
 - Bug #66: Fix player moving in menu and pause screen (MadejaMaciej)
