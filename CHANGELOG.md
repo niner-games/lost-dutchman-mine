@@ -9,6 +9,7 @@ Lost Dutchman Mine Change Log
 0.0.2 March 24, 2024
 -------------------
 
+- Bug #72: Fix squirrel not installing app (MadejaMaciej)
 - Bug #66: Fix player moving in menu and pause screen (MadejaMaciej)
 - Enh #30: Moving left and right in town (MadejaMaciej)
 - Enh #52: Adjusted font properties (MadejaMaciej)
