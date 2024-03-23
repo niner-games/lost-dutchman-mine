@@ -18,12 +18,16 @@ const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    minHeight: 400,
+    minWidth: 600,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
 
-  mainWindow.setMenuBarVisibility(false);
+  if (process.env.MODE !== 'development') {
+    mainWindow.setMenuBarVisibility(false);
+  }
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
