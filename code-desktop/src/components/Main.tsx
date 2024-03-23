@@ -11,11 +11,12 @@ import { SavedGame } from "../types/game";
 
 // Holder for resize window timeout
 let timeoutId: NodeJS.Timeout = null;
+let lastTick = 0;
+let opacity = 0.2;
 
 function Main() {
-    // Variable for animation of splash screen
-    const [splashScreenOpacity, setSplashScreenOpacity] = useState(0.5);
-    // Variable to calculate delta time for splash screen animation (so it will always play in the same speed)
+    const [isOwnOpacity, setIsOwnOpacity] = useState(false);
+    // Variable for rerendering while opacity changes.
     const [lastUpdate, setLastUpdate] = useState(new Date().getTime());
     // Variable to store window dimensions and adjust what we see accordingly
     const [windowDimensions, setWindowDimensions] = useState({
@@ -105,19 +106,33 @@ function Main() {
         }
     }, [gameState, setScreen, setError]);
 
+    const setSplashScreenOpacity = useCallback((to: number) => {
+        if (to > 1) to = 1;
+        if (to < 0) to = 0;
+        opacity = to;
+    }, []);
+
+    const animationFrame = useCallback((tick: number) => {
+        if (screen !== 'splash') return;
+        if (isOwnOpacity) return;
+        if (lastTick === 0) lastTick = tick;
+        const delta = tick - lastTick;
+        lastTick = tick;
+        setSplashScreenOpacity(opacity + (0.03 * delta / 100));
+        setLastUpdate(new Date().getTime());
+
+        if (opacity < 1 && !isOwnOpacity) {
+            requestAnimationFrame(animationFrame);
+        }
+    }, [isOwnOpacity]);
+
     // Function to animate splash screen
-    const setSplashInterval = useCallback(() => {
-        setInterval(() => {
-            const now = new Date().getTime();
-            const delta = now - lastUpdate;
-            const deltaModifier = delta / 100
-            setLastUpdate(now);
-            setSplashScreenOpacity(splashScreenOpacity + (0.01 * deltaModifier));
-        }, 20);
-    }, [])
+    const setSplashAnimationLoop = useCallback(() => {
+        requestAnimationFrame(animationFrame);
+    }, [isOwnOpacity]);
 
     useEffect(() => {
-        setSplashInterval();
+        setSplashAnimationLoop();
       
         function handleResize() {
             if (timeoutId) {
@@ -137,18 +152,7 @@ function Main() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
-
-    useEffect(() => {
-        // Clear animation interval when splash screen is fully visible
-        if (splashScreenOpacity >= 1 && screen === 'splash') {
-            const interval_id = setInterval(function(){}, Number.MAX_SAFE_INTEGER);
-
-            for (let i = 1; i < Number(interval_id); i += 1) {
-                clearInterval(i);
-            }
-        }
-    }, [splashScreenOpacity]);
+    }, [isOwnOpacity]);
 
     useEffect(() => {
         // Set document title based on language
@@ -156,7 +160,16 @@ function Main() {
     }, [language])
 
     if (screen === 'splash') {
-        return <SplashScreen windowDimensions={windowDimensions} opacity={splashScreenOpacity} setScreen={setScreen} />;
+        return <SplashScreen 
+            windowDimensions={windowDimensions} 
+            opacity={opacity} 
+            setOpacity={setSplashScreenOpacity} 
+            setScreen={setScreen} 
+            setLastUpdate={setLastUpdate}
+            isOwnOpacity={isOwnOpacity}
+            setIsOwnOpacity={setIsOwnOpacity}
+            lastUpdate={lastUpdate}
+        />;
     }
 
     if (screen === 'game') {
