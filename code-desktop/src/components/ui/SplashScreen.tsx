@@ -39,6 +39,7 @@ function SplashScreen({ windowDimensions, opacity, setScreen, setLastUpdate, set
     useEffect(() => {
         // On any press even, change splash screen to menu
         const handleKeyPress = () => {
+            if (isOwnOpacity) return;
             setSplashAnimationLoop();
         }
 
@@ -49,7 +50,7 @@ function SplashScreen({ windowDimensions, opacity, setScreen, setLastUpdate, set
             document.removeEventListener('keydown', handleKeyPress);
             document.removeEventListener('mousedown', handleKeyPress);
         }
-    }, [setScreen, lastUpdate]);
+    }, [setScreen, lastUpdate, isOwnOpacity]);
 
     return (
         <div>
@@ -61,7 +62,10 @@ function SplashScreen({ windowDimensions, opacity, setScreen, setLastUpdate, set
                 style={{ opacity: isOwnOpacity ? ownOpacity : opacity, transition: 'linear' }}
             />
 
-            <audio autoPlay src={introSound} onEnded={() => setSplashAnimationLoop()}></audio>
+            <audio autoPlay src={introSound} onEnded={() => {
+                if (isOwnOpacity) return;
+                setSplashAnimationLoop();
+            }}></audio>
             <Subtitle text="(press any key or click to continue)" classes="white absolute top-with-small-margin no-margin left z-index-1 text-shadow" />
             <Subtitle text={version} classes="white absolute bottom-with-small-margin left no-margin z-index-1 text-shadow" />
         </div>

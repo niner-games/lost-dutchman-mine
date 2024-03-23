@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.0.3 April 7, 2024
 -------------------
 
+- Enh #84: Do not let players resize window under certain size. (MadejaMaciej)
 - Enh #81: Add new languages and correct old ones if code is off. (MadejaMaciej)
 - Bug #82: Adjustments to splash screen (MadejaMaciej)
 
