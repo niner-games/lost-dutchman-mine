@@ -25,6 +25,16 @@ const createWindow = (): void => {
     },
   });
 
+  const code = app.getLocaleCountryCode();
+  if (code) {
+    mainWindow.webContents.executeJavaScript('window.localStorage.getItem("language");', true).then(result => {
+      if (!result) {
+        mainWindow.webContents.executeJavaScript(`window.localStorage.setItem("language", "${code.toLowerCase()}");`, true);
+      }
+    });
+  }
+
+
   if (process.env.MODE !== 'development') {
     mainWindow.setMenuBarVisibility(false);
   }

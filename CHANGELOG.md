@@ -4,7 +4,9 @@ Lost Dutchman Mine Change Log
 0.0.3 April 7, 2024
 -------------------
 
+- Enh #50: Detect system default language (MadejaMaciej)
 - Enh #54: Adjust translation system (MadejaMaciej)
+- Enh #53: Create translation file structure (MadejaMaciej)
 - Enh #83: Turn off double click. (MadejaMaciej)
 - Enh #84: Do not let players resize window under certain size. (MadejaMaciej)
 - Enh #81: Add new languages and correct old ones if code is off. (MadejaMaciej)
