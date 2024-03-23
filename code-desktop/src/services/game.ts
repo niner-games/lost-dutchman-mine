@@ -1,13 +1,6 @@
 import player from "./player";
-import town from "../images/map/town.png";
-import map from "../images/map/map.png";
+import { townBackground, mapBackground } from "./backgrounds";
 import { WindowDimensions } from "../types/game";
-
-const townBackground = new Image();
-townBackground.src = town;
-
-const mapBackground = new Image();
-mapBackground.src = map;
 
 export const mainLoop = async (tick: number, context: any, width: number, height: number, image: string, windowDimensions: WindowDimensions) => {
     context.setTransform(1,0,0,1,0,0);
@@ -29,8 +22,9 @@ export const mainLoop = async (tick: number, context: any, width: number, height
     ); 
     context.translate(from, 0);
     
-    player.moveHandler(tick);
-    
     player.drawPlayer(context, windowDimensions);
-    requestAnimationFrame((tick) => mainLoop(tick, context, width, height, image, windowDimensions));
+
+    if (windowDimensions.width === window.innerWidth && windowDimensions.height === window.innerHeight) {
+        requestAnimationFrame((tick) => mainLoop(tick, context, width, height, image, windowDimensions));
+    }
 }

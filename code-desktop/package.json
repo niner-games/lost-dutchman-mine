@@ -1,13 +1,20 @@
 {
   "name": "california-49er-desktop-v1",
   "productName": "california-49er-desktop-v1",
-  "version": "0.0.3",
+  "version": "0.2.1",
   "description": "Lost dutchman mine game for desktop.",
   "main": ".webpack/main",
+  "build": {
+    "appId": "ldm",
+    "mac": {
+      "category": "public.app-category.games"
+    }
+  },
   "scripts": {
     "dev": "electron-forge start",
-    "package": "electron-forge package",
     "build": "electron-forge make",
+    "app:dir": "electron-builder --dir",
+    "app:dist": "electron-builder",
     "publish": "electron-forge publish",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -35,6 +42,7 @@
     "@vercel/webpack-asset-relocator-loader": "1.7.3",
     "css-loader": "^6.0.0",
     "electron": "^29.1.0",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.0.1",
     "eslint-plugin-import": "^2.25.0",
     "file-loader": "^6.2.0",
