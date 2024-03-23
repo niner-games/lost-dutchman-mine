@@ -1,9 +1,12 @@
 Lost Dutchman Mine Change Log
 =============================
 
-0.0.3 April 7, 2024
+0.2.1 April 7, 2024
 -------------------
 
+- Opt #100: Optimization of player script and animation frames (MadejaMaciej)
+- Bug #97: Fix for animation displayed on second keypress (MadejaMaciej)
+- Bug #72: Changed application builder to eliminate squirrel errors (MadejaMaciej)
 - Enh #95: Use translation system to display text in correct language on splash screen (MadejaMaciej)
 - Enh #93: Created info box at the top of the page (MadejaMaciej)
 - Enh #50: Detect system default language (MadejaMaciej)
