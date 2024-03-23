@@ -22,6 +22,11 @@ export type SplashScreenProps = {
     windowDimensions: WindowDimensions,
     opacity: number,
     setScreen: Function,
+    setOpacity: Function,
+    setLastUpdate: Function,
+    isOwnOpacity: boolean,
+    setIsOwnOpacity: Function,
+    lastUpdate: number,
 }
 
 export type DownMenuButtonProps = {

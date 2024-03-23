@@ -40,12 +40,6 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
             document.removeEventListener('keydown', (e) => player.setKeyPressed(e.key));
             document.removeEventListener('keyup', (e) => player.setKeyPressed(null));
             document.removeEventListener('click', (e) => player.mouseMoveHandler(e, windowDimensions.width, canvasWidth));
-
-            const interval_id = setInterval(function(){}, Number.MAX_SAFE_INTEGER);
-
-            for (let i = 1; i < Number(interval_id); i += 1) {
-                clearInterval(i);
-            }
         }
     }, [windowDimensions, canvasWidth, opened])
 
