@@ -14,11 +14,13 @@ function Language({ language, setLanguage }: LanguageProps) {
             <select name="language" onChange={(e) => chooseAndSaveLanguage(e.target.value)} value={language}>
                 <option value={'en'}>EN</option>
                 <option value={'pl'}>PL</option>
-                <option value={'ger'}>GER</option>
-                <option value={'sp'}>SP</option>
+                <option value={'de'}>DE</option>
+                <option value={'es'}>ES</option>
                 <option value={'fr'}>FR</option>
-                <option value={'ua'}>UA</option>
-                <option value={'sil'}>SIL</option>
+                <option value={'it'}>IT</option>
+                <option value={'sx'}>SX</option>
+                <option value={'hi'}>HI</option>
+                <option value={'uk'}>UK</option>
             </select>
         </>
     )
