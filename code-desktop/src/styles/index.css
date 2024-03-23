@@ -95,3 +95,21 @@ body:focus {
 .z-index-1 {
   z-index: 1;
 }
+
+.red {
+  color: #ff0000;
+}
+
+.left {
+  text-align: left;
+}
+
+.no-vertical-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.info {
+  margin-left: 10px;
+  margin-right: 10px;
+}
