@@ -26,6 +26,17 @@ body {
   background-color: #000;
   overflow-y: hidden;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body:focus {
+  outline: none !important;
 }
 
 .center {
