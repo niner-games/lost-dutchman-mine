@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from "react";
 import Subtitle from "../common/Subtitle";
 import splash from "../../images/ui/cover.png";
 import introSound from "../../sounds/intro.wav";
+import { setText } from "../../context/language";
 import { version } from "../../../package.json";
 import { SplashScreenProps } from "../../types/menu";
 
@@ -66,7 +67,7 @@ function SplashScreen({ windowDimensions, opacity, setScreen, setLastUpdate, set
                 if (isOwnOpacity) return;
                 setSplashAnimationLoop();
             }}></audio>
-            <Subtitle text="(press any key or click to continue)" classes="white absolute top-with-small-margin no-margin left z-index-1 text-shadow" />
+            <Subtitle text={setText('startup', '(press any key or click to continue)')} classes="white absolute top-with-small-margin no-margin left z-index-1 text-shadow" />
             <Subtitle text={version} classes="white absolute bottom-with-small-margin left no-margin z-index-1 text-shadow" />
         </div>
     )
