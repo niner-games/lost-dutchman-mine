@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
+import Text from "../common/Text";
 import GameMenu from "../ui/GameMenu";
 import PauseScreen from "../ui/PauseScreen";
 import { mainLoop } from "../../services/game";
@@ -6,12 +7,13 @@ import player from "../../services/player";
 import { SaveGameProps } from "../../types/game";
 
 function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }: SaveGameProps) {
-    const ratio = useMemo(() => 12.7675752773, [])
+    const ratio = useMemo(() => 12.7675752773, []);
     // Height of the background
-    const staticHeight = useMemo(() => windowDimensions.height * 0.6 - 20, [windowDimensions.height])
+    const staticHeight = useMemo(() => windowDimensions.height * 0.6 - 20, [windowDimensions.height]);
     // Width of the background
     const canvasWidth = useMemo(() => ratio * staticHeight, [staticHeight]);
     const [opened, setOpened] = useState('game');
+    const [info, setInfo] = useState('');
 
     const canvasRef = useRef(null);
 
@@ -28,7 +30,7 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
         } else {
             player.startPause();
         }
-    }, [canvasWidth, staticHeight, savedGame.location, opened, windowDimensions])
+    }, [canvasWidth, staticHeight, savedGame.location, opened, windowDimensions]);
 
     useEffect(() => {
         // Event listeners for moving player
@@ -41,22 +43,25 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
             document.removeEventListener('keyup', (e) => player.setKeyPressed(null));
             document.removeEventListener('click', (e) => player.mouseMoveHandler(e, windowDimensions.width, canvasWidth));
         }
-    }, [windowDimensions, canvasWidth, opened])
+    }, [windowDimensions, canvasWidth, opened]);
 
     if (opened === 'pause') {
         return (
             <PauseScreen setOpened={setOpened} saveGame={saveGame} loadGame={loadGame} initialGameName={savedGame.saveName} />
-        )
+        );
     }
 
     return (
         <div>
-            <canvas style={{
-                marginTop: '20px',
-            }} ref={canvasRef} id="game-canvas" />
+            <div style={{
+                height: '20px',
+            }}>
+                <Text text={info} classes="red info left no-vertical-margin"/>
+            </div>
+            <canvas ref={canvasRef} id="game-canvas" />
             <GameMenu setOpened={setOpened} gameState={savedGame} />
         </div>
-    )
+    );
 }
 
 export default Game;
