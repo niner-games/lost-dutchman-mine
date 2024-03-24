@@ -92,7 +92,7 @@ class Player extends Character {
         if(!this.paused) {
             const player = animations[this.direction][this.currentAnimation][this.frame];
             const widthRatio = player.width / player.height;
-            const canvasHeight = windowDimensions.height * 0.6 - 20;
+            const canvasHeight = windowDimensions.height * 0.5138888888888889;
             const dimensions = canvasHeight / this.ratio;
             const imgHeight = dimensions;
             const imgWidth = dimensions * widthRatio;

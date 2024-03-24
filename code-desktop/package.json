@@ -1,7 +1,7 @@
 {
   "name": "california-49er-desktop-v1",
   "productName": "california-49er-desktop-v1",
-  "version": "0.2.1",
+  "version": "0.1.1",
   "description": "Lost dutchman mine game for desktop.",
   "main": ".webpack/main",
   "build": {
@@ -13,8 +13,8 @@
   "scripts": {
     "dev": "electron-forge start",
     "build": "electron-forge make",
-    "app:dir": "electron-builder --dir",
-    "app:dist": "electron-builder",
+    "build:win:dir": "electron-builder --dir",
+    "build:win:dist": "electron-builder",
     "publish": "electron-forge publish",
     "test": "jest",
     "test:coverage": "jest --coverage",

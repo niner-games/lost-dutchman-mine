@@ -9,7 +9,7 @@ import { SaveGameProps } from "../../types/game";
 function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }: SaveGameProps) {
     const ratio = useMemo(() => 12.7675752773, []);
     // Height of the background
-    const staticHeight = useMemo(() => windowDimensions.height * 0.6 - 20, [windowDimensions.height]);
+    const staticHeight = useMemo(() => windowDimensions.height * 0.5138888888888889, [windowDimensions.height]);
     // Width of the background
     const canvasWidth = useMemo(() => ratio * staticHeight, [staticHeight]);
     const [opened, setOpened] = useState('game');
@@ -54,7 +54,7 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
     return (
         <div>
             <div style={{
-                height: '20px',
+                height: '4.90740740740741vh',
             }}>
                 <Text text={info} classes="red info left no-vertical-margin"/>
             </div>
