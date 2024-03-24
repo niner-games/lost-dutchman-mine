@@ -1,9 +1,10 @@
 Lost Dutchman Mine Change Log
 =============================
 
-0.2.1 April 7, 2024
+0.1.1 April 7, 2024
 -------------------
 
+- Bug #98: Fix for ratio of main interface background elements (MadejaMaciej)
 - Opt #100: Optimization of player script and animation frames (MadejaMaciej)
 - Bug #97: Fix for animation displayed on second keypress (MadejaMaciej)
 - Bug #72: Changed application builder to eliminate squirrel errors (MadejaMaciej)
