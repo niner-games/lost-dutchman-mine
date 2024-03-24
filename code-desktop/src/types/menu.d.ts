@@ -1,6 +1,23 @@
 import React from "react";
 import { SavedGame, WindowDimensions } from "./game"
 
+export type IconProps = {
+    isOpen: boolean;
+}
+
+export type Option = {
+    value: string;
+    label: ReactNode;
+}
+
+export type CustomSelectProps = {
+    placeHolder: string;
+    options: Option[];
+    onChange: Function;
+    selected: string;
+    align?: string;
+}
+
 export type TextProps = {
     text: string,
     classes?: string,
