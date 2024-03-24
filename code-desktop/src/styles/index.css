@@ -113,3 +113,11 @@ body:focus {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.flag-select {
+  width: 20px;
+}
+
+.custom--dropdown-container {
+  cursor: pointer;
+}

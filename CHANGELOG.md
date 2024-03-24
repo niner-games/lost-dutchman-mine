@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.1.1 April 7, 2024
 -------------------
 
+- Enh #44: Change country codes to flags (MadejaMaciej)
 - Enh #56: Markdown renderer support for translations (MadejaMaciej)
 - Bug #98: Fix for ratio of main interface background elements (MadejaMaciej)
 - Opt #100: Optimization of player script and animation frames (MadejaMaciej)
