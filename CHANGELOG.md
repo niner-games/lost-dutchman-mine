@@ -1,7 +1,12 @@
 Lost Dutchman Mine Change Log
 =============================
 
-0.1.1 April 7, 2024
+0.2.2 April 7, 2024
+-------------------
+
+
+
+0.2.1 March 25, 2024
 -------------------
 
 - Enh #44: Change country codes to flags (MadejaMaciej)
@@ -19,13 +24,13 @@ Lost Dutchman Mine Change Log
 - Enh #84: Do not let players resize window under certain size. (MadejaMaciej)
 - Enh #81: Add new languages and correct old ones if code is off. (MadejaMaciej)
 - Bug #82: Adjustments to splash screen (MadejaMaciej)
-
-0.0.2 March 24, 2024
--------------------
-
 - Bug #76: Fix Linux build not working (MadejaMaciej)
 - Enh #74: Facility for building multiple app versions by one command (MadejaMaciej)
 - Bug #72: Fix squirrel not installing app (MadejaMaciej)
+
+0.0.2 March 19, 2024
+-------------------
+
 - Bug #66: Fix player moving in menu and pause screen (MadejaMaciej)
 - Enh #30: Moving left and right in town (MadejaMaciej)
 - Enh #52: Adjusted font properties (MadejaMaciej)
