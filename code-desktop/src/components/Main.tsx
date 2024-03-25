@@ -42,7 +42,7 @@ function Main() {
         toolInventory: player.getToolInventory(),
         mercantileItems: mercantile.getInventory(),
     });
-    // Variable to store language
+    // Variable to store language (just for document name change)
     const [language, setLanguage] = useState(window.localStorage.getItem('language') || 'en');
     // Variable to store error messages
     const [error, setError] = useState('');
@@ -229,7 +229,7 @@ function Main() {
         return <PauseScreen inMenu={true} setOpened={setScreen} loadGame={loadGame} />;
     }
 
-    return <Menu setScreen={setScreen} language={language} setLanguage={setLanguage} />;
+    return <Menu setScreen={setScreen} setLanguage={setLanguage} />;
 }
 
 export default Main;
