@@ -5,7 +5,7 @@ import Title from "../common/Title";
 import { setText } from "../../context/language";
 import { MenuProps } from "../../types/menu";
 
-function Menu({ setScreen, language, setLanguage }: MenuProps) {
+function Menu({ setScreen, setLanguage }: MenuProps) {
     const quitGame = useCallback(() => {
         window.close();
     }, []);
@@ -21,7 +21,7 @@ function Menu({ setScreen, language, setLanguage }: MenuProps) {
     return (
         <div>
             <Title classes="center white" text={'Main Menu'} />
-            <Language language={language} setLanguage={setLanguage} />
+            <Language setLanguage={setLanguage} />
             <MenuButton clickHandler={startNewGame} text={'Start Game'} />
             <MenuButton clickHandler={loadGames} text={'Load game'} />
             <MenuButton clickHandler={quitGame} text={'Quit game'} />

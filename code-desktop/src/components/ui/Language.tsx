@@ -12,7 +12,7 @@ import sx from "../../images/ui/flags/sil-coat.png";
 import hi from "../../images/ui/flags/in.svg";
 import uk from "../../images/ui/flags/ua.svg";
 
-function Language({ language, setLanguage }: LanguageProps) {
+function Language({ setLanguage }: LanguageProps) {
     const options = useMemo(() => {
         return [
             {
@@ -62,7 +62,7 @@ function Language({ language, setLanguage }: LanguageProps) {
     return (
         <>
             <label htmlFor="language" className="white">{'Language'}</label>
-            <CustomSelect placeHolder="language" options={options} onChange={chooseAndSaveLanguage} selected={language} />
+            <CustomSelect placeHolder="language" options={options} onChange={chooseAndSaveLanguage} selected={window.localStorage.getItem('language') || 'en'} />
         </>
     )
 }

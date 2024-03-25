@@ -1,22 +1,41 @@
 {
-  "name": "california-49er-desktop-v1",
-  "productName": "california-49er-desktop-v1",
+  "name": "lost-dutchman-mine",
+  "productName": "Lost Dutchman Mine",
   "version": "0.2.2",
-  "description": "Lost dutchman mine game for desktop.",
+  "description": "Lost Dutchman Mine",
   "main": ".webpack/main",
   "build": {
     "appId": "ldm",
+    "asar": true,
     "mac": {
-      "category": "public.app-category.games"
+      "category": "public.app-category.games",
+      "target": "dmg",
+      "icon": "./src/favicon.png"
+    },
+    "linux":{
+      "category": "Game",
+      "icon": "./src/favicon.png"
+    },
+    "win":{
+      "publisherName": "Niner Games",
+      "target": "msi",
+      "icon": "./src/favicon.png"
     }
   },
   "scripts": {
     "dev": "electron-forge start",
     "build": "electron-forge make",
     "build:web:mac": "electron-forge make && cp index.html ./.webpack/arm64/renderer && cp ./src/favicon.png ./.webpack/arm64/renderer/main_window",
+    "build:web:linux": "electron-forge make && cp index.html ./.webpack/amd64/renderer && cp ./src/favicon.png ./.webpack/amd64/renderer/main_window",
     "build:web:win": "electron-forge make && copy index.html ./.webpack/x64/renderer && copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
-    "build:win:dir": "electron-builder --dir",
-    "build:win:dist": "electron-builder",
+    "build:dir": "electron-builder --dir",
+    "build:dist": "electron-builder",
+    "copy:redirection:mac": "cp index.html ./.webpack/arm64/renderer",
+    "copy:redirection:linux": "cp index.html ./.webpack/amd64/renderer",
+    "copy:redirection:win": "copy index.html ./.webpack/x64/renderer",
+    "copy:favicon:mac": "cp ./src/favicon.png ./.webpack/arm64/renderer/main_window",
+    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/amd64/renderer/main_window",
+    "copy:favicon:win": "copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "publish": "electron-forge publish",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -63,8 +82,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "Maciej Madejczyk",
-    "email": "48794984+MadejaMaciej@users.noreply.github.com"
+    "name": "Niner Games"
   },
   "license": "MIT",
   "dependencies": {
