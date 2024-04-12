@@ -21,7 +21,8 @@
     "lint": "eslint \"**/*.{js,ts}\"",
     "lint:fix": "eslint --fix \"**/*.{js,ts}\"",
     "commit": "node incrementVersion.js && git add . && git cz",
-    "commit:plain": "git add . && git cz"
+    "commit:plain": "git add . && git cz",
+    "electronegativity": "electronegativity -i ./ "
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.3.0",
@@ -30,6 +31,7 @@
     "@electron-forge/maker-squirrel": "^7.3.0",
     "@electron-forge/maker-zip": "^7.3.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
+    "@electron-forge/plugin-electronegativity": "^7.4.0",
     "@electron-forge/plugin-fuses": "^7.2.0",
     "@electron-forge/plugin-webpack": "^7.3.0",
     "@electron/fuses": "^1.7.0",
