@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Enh #122: Use Electronegativity to check for holes in code (MadejaMaciej)
 - Enh #18: Transfer code to mobile version (MadejaMaciej)
 
 0.2.1 March 25, 2024
