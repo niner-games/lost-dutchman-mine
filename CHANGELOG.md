@@ -1,10 +1,10 @@
 Lost Dutchman Mine Change Log
 =============================
 
-0.2.2 April 7, 2024
+0.2.2 April 21, 2024
 -------------------
 
-
+- Enh #18: Transfer code to mobile version (MadejaMaciej)
 
 0.2.1 March 25, 2024
 -------------------

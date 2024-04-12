@@ -1,0 +1,123 @@
+@font-face {
+  font-family: 'pixelify-regular';
+  src: URL('../fonts/PixelifySans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pixelify-medium';
+  src: URL('../fonts/PixelifySans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pixelify-semi-bold';
+  src: URL('../fonts/PixelifySans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pixelify-bold';
+  src: URL('../fonts/PixelifySans-Bold.ttf') format('truetype');
+}
+
+
+body {
+  font-family: 'pixelify-regular';
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body:focus {
+  outline: none !important;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.white {
+  color: #fff;
+}
+
+.board-pickaxe {
+  width: 70px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.bottom {
+  bottom: 20px;
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
+}
+
+.top {
+  top: 20px;
+}
+
+.top-with-small-margin {
+  top: 5px;
+}
+
+.bottom-with-small-margin {
+  bottom: 5px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.text-shadow {
+  text-shadow: #000 2px 2px 2px;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.left {
+  text-align: left;
+}
+
+.no-vertical-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.info {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.flag-select {
+  width: 20px;
+}
+
+.custom--dropdown-container {
+  cursor: pointer;
+}
