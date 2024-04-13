@@ -14,6 +14,8 @@ function GameMenu({ gameState, setOpened }: InGameMenuProps) {
             width: '100%',
             height: '43.7037037037037vh',
             display: 'flex',
+            marginLeft: '5%',
+            marginRight: '5%',
             // TODO: remove background once have image
             background: '#c08d49'
             // TODO: add background image
