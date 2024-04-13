@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Bug #116: Add favicon in web version (MadejaMaciej)
 - Enh #113: Create redirect file to the game in web version (MadejaMaciej)
 - Bug #111: Fix sounds on web version (MadejaMaciej)
 - Enh #112: Change dimensions and margins (MadejaMaciej)
