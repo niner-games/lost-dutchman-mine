@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Bug #111: Fix sounds on web version (MadejaMaciej)
 - Enh #112: Change dimensions and margins (MadejaMaciej)
 - Enh #23: Implement changing city map to terrain map when reaching bands (MadejaMaciej)
 - Enh #129: Change font to Lost Pixelised Font (MadejaMaciej)
