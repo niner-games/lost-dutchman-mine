@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Enh #23: Implement changing city map to terrain map when reaching bands (MadejaMaciej)
 - Enh #129: Change font to Lost Pixelised Font (MadejaMaciej)
 - Enh #122: Use Electronegativity to check for holes in code (MadejaMaciej)
 - Enh #18: Transfer code to mobile version (MadejaMaciej)

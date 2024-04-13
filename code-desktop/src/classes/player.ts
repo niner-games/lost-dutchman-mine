@@ -5,13 +5,15 @@ import { WindowDimensions, Directions } from "../types/game";
 
 let lastTick = 0; 
 let lastAnimationPlayed = 0;
+const bandBorder = 0.01;
+const heightModifier = 0.5138888888888889;
 
 class Player extends Character {
     speed = 3;
     backgroundSpeed = 1.0;
     ratio = 3.0;
     x = 0.5;
-    y = 0.5;
+    y = 0.9;
     top = 0.9;
     left = 0.5;
     direction = 'down';
@@ -21,6 +23,7 @@ class Player extends Character {
     traveling = false;
     toPoint = this.x;
     paused = false;
+    location = 'town';
     keyPressed: string = null;
 
     constructor() {
@@ -42,10 +45,6 @@ class Player extends Character {
         this.y = newY;
     }
     
-    setTop = (newTop: number) => {
-        this.top = newTop;
-    }
-    
     setLeft = (newLeft: number) => {
         this.left = newLeft;
     }
@@ -64,7 +63,6 @@ class Player extends Character {
     
     getX = () => this.x;
     getY = () => this.y;
-    getTop = () => this.top;
     getLeft = () => this.left;
     getDirection = () => this.direction;
     getCurrentAnimation = () => this.currentAnimation;
@@ -89,17 +87,29 @@ class Player extends Character {
     };
 
     drawPlayer = (context: any, windowDimensions: WindowDimensions) => {
-        if(!this.paused) {
-            const player = animations[this.direction][this.currentAnimation][this.frame];
-            const widthRatio = player.width / player.height;
-            const canvasHeight = windowDimensions.height * 0.5138888888888889;
-            const dimensions = canvasHeight / this.ratio;
-            const imgHeight = dimensions;
-            const imgWidth = dimensions * widthRatio;
-            const height = (canvasHeight - imgHeight) * this.top;
-            const width = windowDimensions.width * this.left - imgWidth / 2;
-            context.drawImage(player, width, height, imgWidth, imgHeight);
+        if (this.paused) {
+            return;
         }
+
+        if (this.location === 'map') {
+            context.fillStyle = '#000'
+            context.fillRect(windowDimensions.width * this.left - 20 / 2, (windowDimensions.height * heightModifier - 20) * this.y, 20, 20);
+            return;
+        }
+
+        const player = animations[this.direction][this.currentAnimation][this.frame];
+        if (!player) {
+            return;
+        }
+        const widthRatio = player.width / player.height;
+        const canvasHeight = windowDimensions.height * heightModifier;
+        const dimensions = canvasHeight / this.ratio;
+        const imgHeight = dimensions;
+        const imgWidth = dimensions * widthRatio;
+        const height = (canvasHeight - imgHeight) * this.y;
+        const width = windowDimensions.width * this.left - imgWidth / 2;
+
+        context.drawImage(player, width, height, imgWidth, imgHeight);
     };
     
     // Function to get what player should do on key presses
@@ -168,6 +178,29 @@ class Player extends Character {
         }
 
         this.x += (this.toPoint < this.x ? -1 : 1) * this.speed * delta * modifier;
+
+        if (this.location === 'town') {
+            this.currentAnimation = 'move';
+            if (this.direction === 'left' && this.x < 0 + bandBorder) {
+                this.location = 'map';
+                this.x = 0.44;
+                this.y = 0.5;
+                this.currentAnimation = 'idle';
+                this.frame = 0;
+                this.traveling = false;
+            }
+    
+            if (this.direction === 'right' && this.x > 1 - bandBorder) {
+                this.location = 'map';
+                this.x = 0.44;
+                this.y = 0.5;
+                this.currentAnimation = 'idle';
+                this.frame = 0;
+                this.traveling = false;
+            }
+        } else if (this.location === 'map') {
+            this.currentAnimation = 'idle';
+        }
     };
 
     handleArrowMovement = (delta: number, dir: Directions, tick: number, lastAnimation: number) => {
@@ -187,11 +220,29 @@ class Player extends Character {
 
             lastAnimationPlayed = tick;
         }
-        this.currentAnimation = 'move';
 
         this.x += dir.vec.x * this.speed * delta * modifier;
         
         this.direction = dir.name;
+
+        if (this.location === 'town') {
+            this.currentAnimation = 'move';
+            if (this.direction === 'left' && this.x < 0 + bandBorder) {
+                this.location = 'map';
+                this.x = 0.44;
+                this.y = 0.5;
+                this.currentAnimation = 'idle';
+            }
+    
+            if (this.direction === 'right' && this.x > 1 - bandBorder) {
+                this.location = 'map';
+                this.x = 0.44;
+                this.y = 0.5;
+                this.currentAnimation = 'idle';
+            }
+        } else if (this.location === 'map') {
+            this.currentAnimation = 'idle';
+        }
     };
     
     // Function to get what player should do on mouse click
