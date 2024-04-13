@@ -25,7 +25,7 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
                 canvas.width = canvasWidth;
                 canvas.height = staticHeight;
                 player.stopPause();
-                requestAnimationFrame((tick) => mainLoop(tick, context, canvasWidth, staticHeight, savedGame.location, windowDimensions));
+                requestAnimationFrame((tick) => mainLoop(tick, context, canvasWidth, staticHeight, windowDimensions));
             }
         } else {
             player.startPause();
