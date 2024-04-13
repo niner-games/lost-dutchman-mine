@@ -54,6 +54,10 @@ export type DownMenuButtonProps = {
     valueToPass?: unknown,
 }
 
+export type StartScreenProps = {
+    setScreen: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export type LanguageProps = {
     language: string;
     setLanguage: React.Dispatch<React.SetStateAction<string>>;

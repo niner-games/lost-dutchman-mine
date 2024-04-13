@@ -4,9 +4,11 @@ import Menu from "./ui/Menu";
 import PauseScreen from "./ui/PauseScreen";
 import Game from "./game/Game";
 import SplashScreen from "./ui/SplashScreen";
+import StartGame from "./ui/StartGame";
 import player from "../services/player";
 import { setText } from "../context/language";
 import { getWindowDimensions } from "../utils/window";
+import { isElectron } from "../utils/isElectron";
 import { SavedGame } from "../types/game";
 
 // Holder for resize window timeout
@@ -24,7 +26,7 @@ function Main() {
         width: window.innerWidth,
     });
     // Variable to store current screen
-    const [screen, setScreen] = useState('splash');
+    const [screen, setScreen] = useState(isElectron() ? 'splash' : 'browser-welcome-screen');
     // Variable to store game state (aca game save)
     const [gameState, setGameState] = useState({
         uuid: v4(),
@@ -125,16 +127,15 @@ function Main() {
         if (opacity < 1 && !isOwnOpacity) {
             requestAnimationFrame(animationFrame);
         }
-    }, [isOwnOpacity]);
+    }, [screen, isOwnOpacity]);
 
     // Function to animate splash screen
     const setSplashAnimationLoop = useCallback(() => {
+        if (screen !== 'splash') return;
         requestAnimationFrame(animationFrame);
-    }, [isOwnOpacity]);
+    }, [screen ,isOwnOpacity]);
 
     useEffect(() => {
-        setSplashAnimationLoop();
-      
         function handleResize() {
             if (timeoutId) {
                 clearTimeout(timeoutId);
@@ -153,12 +154,20 @@ function Main() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [isOwnOpacity]);
+    }, []);
+
+    useEffect(() => {
+        setSplashAnimationLoop();
+    }, [isOwnOpacity, screen])
 
     useEffect(() => {
         // Set document title based on language
         document.title = 'Lost Dutchman Mine';
-    }, [language])
+    }, [language]);
+
+    if (screen === 'browser-welcome-screen') {
+        return <StartGame setScreen={setScreen} />
+    }
 
     if (screen === 'splash') {
         return <SplashScreen 
