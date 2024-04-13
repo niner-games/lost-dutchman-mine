@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import Text from "../common/Text";
+import MarginOverlay from "../ui/MarginOverlay";
 import GameMenu from "../ui/GameMenu";
 import PauseScreen from "../ui/PauseScreen";
 import { mainLoop } from "../../services/game";
@@ -53,8 +54,12 @@ function Game({ savedGame, setGameState, windowDimensions, saveGame, loadGame }:
 
     return (
         <div>
+            <MarginOverlay left={true} />
+            <MarginOverlay />
             <div style={{
                 height: '4.90740740740741vh',
+                marginLeft: '5%',
+                marginRight: '5%',
             }}>
                 <Text text={info} classes="red info left no-vertical-margin"/>
             </div>

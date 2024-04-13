@@ -55,14 +55,14 @@ function Main() {
                     if (game.uuid !== gameState.uuid) return game;
                     else {
                         alreadySaved = true;
-                        setGameState({ ...gameState, saveName: gameName, playerPosition: player.getPosition()});
-                        return { ...gameState, saveName: gameName, playerPosition: player.getPosition()};
+                        setGameState({ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()});
+                        return { ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()};
                     }
                 })
 
                 if (!alreadySaved) {
-                    games.push({ ...gameState, saveName: gameName, playerPosition: player.getPosition()})
-                    setGameState({ ...gameState, saveName: gameName, playerPosition: player.getPosition()});
+                    games.push({ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()})
+                    setGameState({ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()});
                 }
 
                 const stringifiedGames = JSON.stringify(games);
@@ -72,7 +72,7 @@ function Main() {
             }
         } else {
             // If there are no saved games, create new array and add new game to it
-            window.localStorage.setItem('saved-games', JSON.stringify([{ ...gameState, saveName: gameName, playerPosition: player.getPosition() }]));
+            window.localStorage.setItem('saved-games', JSON.stringify([{ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation() }]));
         }
     }, [gameState, setGameState, setError]);
 
@@ -96,6 +96,7 @@ function Main() {
                 if (game.uuid === uuid) {
                     player.setX(game.playerPosition.x);
                     player.setY(game.playerPosition.y);
+                    player.setPlayerLocation(game.location);
                     setGameState(game);
                     setScreen('game');
                 }

@@ -1,7 +1,7 @@
 {
   "name": "california-49er-desktop-v1",
   "productName": "california-49er-desktop-v1",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Lost dutchman mine game for desktop.",
   "main": ".webpack/main",
   "build": {

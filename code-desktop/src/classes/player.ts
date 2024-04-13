@@ -60,6 +60,10 @@ class Player extends Character {
     setFrame = (newFrame: number) => {
         this.frame = newFrame;
     }
+
+    setPlayerLocation = (newLocation: string) => {
+        this.location = newLocation;
+    }
     
     getX = () => this.x;
     getY = () => this.y;
@@ -67,6 +71,7 @@ class Player extends Character {
     getDirection = () => this.direction;
     getCurrentAnimation = () => this.currentAnimation;
     getFrame = () => this.frame;
+    getPlayerLocation = () => this.location;
 
     getPosition = () => {
         return {
