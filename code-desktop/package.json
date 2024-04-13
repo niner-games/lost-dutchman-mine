@@ -13,6 +13,8 @@
   "scripts": {
     "dev": "electron-forge start",
     "build": "electron-forge make",
+    "build:web:mac": "electron-forge make && cp index.html ./.webpack/arm64/renderer",
+    "build:web:win": "electron-forge make && copy index.html ./.webpack/x64/renderer",
     "build:win:dir": "electron-builder --dir",
     "build:win:dist": "electron-builder",
     "publish": "electron-forge publish",
