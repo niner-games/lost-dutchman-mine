@@ -1,26 +1,13 @@
 @font-face {
-  font-family: 'pixelify-regular';
-  src: URL('../fonts/PixelifySans-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'pixelify-medium';
-  src: URL('../fonts/PixelifySans-Medium.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'pixelify-semi-bold';
-  src: URL('../fonts/PixelifySans-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'pixelify-bold';
-  src: URL('../fonts/PixelifySans-Bold.ttf') format('truetype');
+  font-family: 'lostPixelisedFont-regular';
+  src: URL('../fonts/lostPixelizedFont.ttf') format('truetype'),
+  URL('../fonts/lostPixelizedFont.woff') format('woff')
+  URL('../fonts/lostPixelizedFont.woff2') format('woff2');
 }
 
 
 body {
-  font-family: 'pixelify-regular';
+  font-family: 'lostPixelisedFont-regular';
   margin: 0;
   padding: 0;
   background-color: #000;
@@ -33,6 +20,9 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-size: 20px;
+  line-height: 21px;
+  color: #CFAE6D;
 }
 
 body:focus {
