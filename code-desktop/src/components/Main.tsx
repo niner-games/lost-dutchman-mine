@@ -38,6 +38,8 @@ function Main() {
             x: player.getX(),
             y: player.getY()
         },
+        foodInventory: player.getFoodInventory(),
+        toolInventory: player.getToolInventory(),
         mercantileItems: mercantile.getInventory(),
     });
     // Variable to store language
@@ -64,6 +66,8 @@ function Main() {
                             saveName: gameName, 
                             playerPosition: player.getPosition(), 
                             location: player.getPlayerLocation(),
+                            foodInventory: player.getFoodInventory(),
+                            toolInventory: player.getToolInventory(),
                             mercantileItems: mercantile.getInventory(),
                         });
                         return { 
@@ -71,6 +75,8 @@ function Main() {
                             saveName: gameName, 
                             playerPosition: player.getPosition(), 
                             location: player.getPlayerLocation(),
+                            foodInventory: player.getFoodInventory(),
+                            toolInventory: player.getToolInventory(),
                             mercantileItems: mercantile.getInventory(),
                         };
                     }
@@ -82,6 +88,8 @@ function Main() {
                         saveName: gameName, 
                         playerPosition: player.getPosition(), 
                         location: player.getPlayerLocation(),
+                        foodInventory: player.getFoodInventory(),
+                        toolInventory: player.getToolInventory(),
                         mercantileItems: mercantile.getInventory(),
                     });
                     setGameState({ 
@@ -89,6 +97,8 @@ function Main() {
                         saveName: gameName, 
                         playerPosition: player.getPosition(), 
                         location: player.getPlayerLocation(),
+                        foodInventory: player.getFoodInventory(),
+                        toolInventory: player.getToolInventory(),
                         mercantileItems: mercantile.getInventory(),
                     });
                 }
@@ -126,6 +136,8 @@ function Main() {
                     player.setY(game.playerPosition.y);
                     player.setPlayerLocation(game.location);
                     if (game.mercantileItems) mercantile.setInventory(game.mercantileItems);
+                    if (game.foodInventory) player.setFoodInventory(game.foodInventory);
+                    if (game.toolInventory) player.setToolInventory(game.toolInventory);
                     setGameState({ ...game, mercantileItems: mercantile.getInventory() });
                     setScreen('game');
                 }

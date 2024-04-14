@@ -10,6 +10,8 @@ export type SavedGame = {
     saveName: string;
     location: string;
     backgroundAlt: string;
+    foodInventory: Array<Array<Item | null>>;
+    toolInventory: Array<Array<Item | null>>;
     playerPosition: PlayerPosition;
     mercantileItems: Item[];
 };
