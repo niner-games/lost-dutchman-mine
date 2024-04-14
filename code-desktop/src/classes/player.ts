@@ -2,6 +2,7 @@ import Character from "./character";
 import { animations, animationSpeed, modifier, directions } from "../services/animations";
 import { walkingSound } from "../services/sounds";
 import { WindowDimensions, Directions } from "../types/game";
+import { Item } from "../types/items";
 
 let lastTick = 0; 
 let lastAnimationPlayed = 0;
@@ -24,6 +25,18 @@ class Player extends Character {
     toPoint = this.x;
     paused = false;
     location = 'town';
+    foodInventory: Array<Array<Item | null>> = [
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+    ];
+    toolInventory: Array<Array<Item | null>> = [
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+    ];
     keyPressed: string = null;
 
     constructor() {
@@ -64,6 +77,14 @@ class Player extends Character {
     setPlayerLocation = (newLocation: string) => {
         this.location = newLocation;
     }
+
+    setFoodInventory = (newFoodInventory: Array<Array<Item | null>>) => {
+        this.foodInventory = newFoodInventory;
+    }
+
+    setToolInventory = (newToolInventory: Array<Array<Item | null>>) => {
+        this.toolInventory = newToolInventory;
+    }
     
     getX = () => this.x;
     getY = () => this.y;
@@ -72,6 +93,8 @@ class Player extends Character {
     getCurrentAnimation = () => this.currentAnimation;
     getFrame = () => this.frame;
     getPlayerLocation = () => this.location;
+    getFoodInventory = () => this.foodInventory;
+    getToolInventory = () => this.toolInventory;
 
     getPosition = () => {
         return {
