@@ -1,3 +1,5 @@
+import { Item } from './items';
+
 type PlayerPosition = {
     x: number;
     y: number;
@@ -9,6 +11,7 @@ export type SavedGame = {
     location: string;
     backgroundAlt: string;
     playerPosition: PlayerPosition;
+    mercantileItems: Item[];
 };
 
 export type WindowDimensions = {

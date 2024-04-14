@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Enh #126: Add Internal array to store items and prices (MadejaMaciej)
 - Enh #121: Use auto unpack native modules plugin to reduce loading times and disk consumption (MadejaMaciej)
 - Enh #136: Change lost pixelised font properties (MadejaMaciej)
 - Bug #116: Add favicon in web version (MadejaMaciej)
