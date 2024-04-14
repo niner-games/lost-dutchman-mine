@@ -23,7 +23,11 @@ const createWindow = (): void => {
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
+    show: false,
   });
+
+  mainWindow.maximize();
+  mainWindow.show();
 
   const code = app.getLocaleCountryCode();
   if (code) {
