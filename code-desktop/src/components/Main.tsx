@@ -6,6 +6,7 @@ import Game from "./game/Game";
 import SplashScreen from "./ui/SplashScreen";
 import StartGame from "./ui/StartGame";
 import player from "../services/player";
+import mercantile from "../services/mercantile";
 import { setText } from "../context/language";
 import { getWindowDimensions } from "../utils/window";
 import { isElectron } from "../utils/isElectron";
@@ -36,7 +37,8 @@ function Main() {
         playerPosition: {
             x: player.getX(),
             y: player.getY()
-        }
+        },
+        mercantileItems: mercantile.getInventory(),
     });
     // Variable to store language
     const [language, setLanguage] = useState(window.localStorage.getItem('language') || 'en');
@@ -57,14 +59,38 @@ function Main() {
                     if (game.uuid !== gameState.uuid) return game;
                     else {
                         alreadySaved = true;
-                        setGameState({ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()});
-                        return { ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()};
+                        setGameState({ 
+                            ...gameState, 
+                            saveName: gameName, 
+                            playerPosition: player.getPosition(), 
+                            location: player.getPlayerLocation(),
+                            mercantileItems: mercantile.getInventory(),
+                        });
+                        return { 
+                            ...gameState, 
+                            saveName: gameName, 
+                            playerPosition: player.getPosition(), 
+                            location: player.getPlayerLocation(),
+                            mercantileItems: mercantile.getInventory(),
+                        };
                     }
                 })
 
                 if (!alreadySaved) {
-                    games.push({ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()})
-                    setGameState({ ...gameState, saveName: gameName, playerPosition: player.getPosition(), location: player.getPlayerLocation()});
+                    games.push({ 
+                        ...gameState, 
+                        saveName: gameName, 
+                        playerPosition: player.getPosition(), 
+                        location: player.getPlayerLocation(),
+                        mercantileItems: mercantile.getInventory(),
+                    });
+                    setGameState({ 
+                        ...gameState, 
+                        saveName: gameName, 
+                        playerPosition: player.getPosition(), 
+                        location: player.getPlayerLocation(),
+                        mercantileItems: mercantile.getInventory(),
+                    });
                 }
 
                 const stringifiedGames = JSON.stringify(games);
@@ -99,7 +125,8 @@ function Main() {
                     player.setX(game.playerPosition.x);
                     player.setY(game.playerPosition.y);
                     player.setPlayerLocation(game.location);
-                    setGameState(game);
+                    if (game.mercantileItems) mercantile.setInventory(game.mercantileItems);
+                    setGameState({ ...game, mercantileItems: mercantile.getInventory() });
                     setScreen('game');
                 }
             })
