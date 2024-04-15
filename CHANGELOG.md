@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Enh #144: Add 512px logo for macos (MadejaMaciej)
 - Enh #78: Linux builds (MadejaMaciej)
 - Bug #115: Change app icon in build (MadejaMaciej)
 - Bug #79: Change build properties (MadejaMaciej)
