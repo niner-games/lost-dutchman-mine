@@ -9,16 +9,17 @@
     "asar": true,
     "mac": {
       "category": "public.app-category.games",
-      "target": "dmg",
+      "target": ["dmg", "zip"],
       "icon": "./src/favicon.png"
     },
     "linux":{
       "category": "Game",
+      "target": ["deb", "tar.gz"],
       "icon": "./src/favicon.png"
     },
     "win":{
       "publisherName": "Niner Games",
-      "target": "msi",
+      "target": ["msi", "zip"],
       "icon": "./src/favicon.png"
     }
   },
@@ -26,15 +27,15 @@
     "dev": "electron-forge start",
     "build": "electron-forge make",
     "build:web:mac": "electron-forge make && cp index.html ./.webpack/arm64/renderer && cp ./src/favicon.png ./.webpack/arm64/renderer/main_window",
-    "build:web:linux": "electron-forge make && cp index.html ./.webpack/amd64/renderer && cp ./src/favicon.png ./.webpack/amd64/renderer/main_window",
+    "build:web:linux": "electron-forge make && cp index.html ./.webpack/renderer && cp ./src/favicon.png ./.webpack/renderer/main_window",
     "build:web:win": "electron-forge make && copy index.html ./.webpack/x64/renderer && copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "build:dir": "electron-builder --dir",
     "build:dist": "electron-builder",
     "copy:redirection:mac": "cp index.html ./.webpack/arm64/renderer",
-    "copy:redirection:linux": "cp index.html ./.webpack/amd64/renderer",
+    "copy:redirection:linux": "cp index.html ./.webpack/renderer",
     "copy:redirection:win": "copy index.html ./.webpack/x64/renderer",
     "copy:favicon:mac": "cp ./src/favicon.png ./.webpack/arm64/renderer/main_window",
-    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/amd64/renderer/main_window",
+    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/renderer/main_window",
     "copy:favicon:win": "copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "publish": "electron-forge publish",
     "test": "jest",
