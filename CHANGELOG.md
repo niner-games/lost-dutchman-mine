@@ -4,6 +4,7 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Enh #78: Linux builds (MadejaMaciej)
 - Bug #115: Change app icon in build (MadejaMaciej)
 - Bug #79: Change build properties (MadejaMaciej)
 - Enh #125: Add internal array to store food and tools (MadejaMaciej)

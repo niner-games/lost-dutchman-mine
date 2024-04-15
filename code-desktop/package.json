@@ -9,16 +9,17 @@
     "asar": true,
     "mac": {
       "category": "public.app-category.games",
-      "target": "dmg",
+      "target": ["dmg", "zip"],
       "icon": "./src/favicon.png"
     },
     "linux":{
       "category": "Game",
+      "target": ["deb", "tar.gz"],
       "icon": "./src/favicon.png"
     },
     "win":{
       "publisherName": "Niner Games",
-      "target": "msi",
+      "target": ["msi", "zip"],
       "icon": "./src/favicon.png"
     }
   },
