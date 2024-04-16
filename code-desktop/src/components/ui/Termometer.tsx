@@ -24,15 +24,34 @@ function Termometer() {
       <div
         style={{
           position: "absolute",
-          width: "12px",
+          width: "8%",
           background: "#ef0000",
           zIndex: 1,
-          // TODO: it needs to be percentage calculated from dimensions in order to be responsive.
-          bottom: "57px",
-          left: "29px",
+          bottom: "13.5%",
+          left: "18%",
           height: "35px",
-          borderLeft: "4px solid #ae0000",
-          borderRight: "4px solid #ae0000",
+        }}
+      ></div>
+      <div
+        style={{
+          position: "absolute",
+          width: "2.5384615384615384615384612%",
+          background: "#ae0000",
+          zIndex: 2,
+          bottom: "13.5%",
+          left: "15.6%",
+          height: "35px",
+        }}
+      ></div>
+      <div
+        style={{
+          position: "absolute",
+          width: "2.9615384615384615384615384615385%",
+          background: "#ae0000",
+          zIndex: 2,
+          bottom: "13.5%",
+          left: "24.2%",
+          height: "35px",
         }}
       ></div>
     </div>
