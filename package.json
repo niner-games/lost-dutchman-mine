@@ -1,0 +1,126 @@
+{
+  "name": "lost-dutchman-mine",
+  "productName": "Lost Dutchman Mine",
+  "version": "0.2.3",
+  "description": "Lost Dutchman Mine",
+  "main": ".webpack/main",
+  "build": {
+    "appId": "ldm",
+    "asar": true,
+    "files": [
+      "!*.*",
+      "!**/*",
+      ".webpack/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.games",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "./src/favicon512.png"
+    },
+    "linux": {
+      "category": "Game",
+      "target": [
+        "deb",
+        "tar.gz"
+      ],
+      "icon": "./src/favicon.png"
+    },
+    "win": {
+      "publisherName": "Niner Games",
+      "target": [
+        "msi",
+        "zip"
+      ],
+      "icon": "./src/favicon.png"
+    }
+  },
+  "scripts": {
+    "dev": "electron-forge start",
+    "dev:android": "npx cap sync && npx cap open android",
+    "dev:ios": "npx cap sync && npx cap open ios",
+    "build": "electron-forge make",
+    "build:android": "npx cap copy && npx cap copy android && npx cap open android",
+    "build:ios": "npx cap copy && npx cap copy ios && npx cap open ios",
+    "build:web:mac": "electron-forge make && cp index.html ./.webpack/arm64/renderer && cp ./src/favicon512.png ./.webpack/arm64/renderer/main_window/favicon.png",
+    "build:web:linux": "electron-forge make && cp index.html ./.webpack/x64/renderer && cp ./src/favicon.png ./.webpack/x64/renderer/main_window",
+    "build:web:win": "electron-forge make && copy index.html ./.webpack/x64/renderer && copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
+    "build:dir": "electron-builder --dir",
+    "build:dist": "electron-builder",
+    "copy:redirection:mac": "cp index.html ./.webpack/arm64/renderer",
+    "copy:redirection:linux": "cp index.html ./.webpack/x64/renderer",
+    "copy:redirection:win": "copy index.html ./.webpack/x64/renderer",
+    "copy:favicon:mac": "cp ./src/favicon512.png ./.webpack/arm64/renderer/main_window/favicon.png",
+    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/x64/renderer/main_window",
+    "copy:favicon:win": "copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
+    "publish": "electron-forge publish",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint \"**/*.{js,ts}\"",
+    "lint:fix": "eslint --fix \"**/*.{js,ts}\"",
+    "commit": "node incrementVersion.js && git add . && git cz",
+    "commit:plain": "git add . && git cz",
+    "electronegativity": "electronegativity -i ./ "
+  },
+  "devDependencies": {
+    "@capacitor/cli": "6.0.0",
+    "@capacitor/core": "6.0.0",
+    "@electron-forge/cli": "^7.3.0",
+    "@electron-forge/maker-deb": "^7.3.0",
+    "@electron-forge/maker-rpm": "^7.3.0",
+    "@electron-forge/maker-squirrel": "^7.3.0",
+    "@electron-forge/maker-zip": "^7.3.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.3.0",
+    "@electron-forge/plugin-electronegativity": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.2.0",
+    "@electron-forge/plugin-webpack": "^7.3.0",
+    "@electron/fuses": "^1.7.0",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@types/react": "^18.2.60",
+    "@types/react-dom": "^18.2.19",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "@vercel/webpack-asset-relocator-loader": "1.7.3",
+    "css-loader": "^6.0.0",
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3",
+    "eslint": "^8.0.1",
+    "eslint-plugin-import": "^2.25.0",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^7.2.13",
+    "git-cz": "4.9.0",
+    "jest": "29.7.0",
+    "node-loader": "^2.0.0",
+    "prompt-sync": "^4.2.0",
+    "style-loader": "^3.0.0",
+    "ts-loader": "^9.2.2",
+    "ts-node": "^10.0.0",
+    "typescript": "~4.5.4",
+    "versiony": "2.0.1"
+  },
+  "keywords": [],
+  "homepage": "https://ninergames.com",
+  "author": {
+    "name": "Niner Games",
+    "email": "info@ninergames.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/app": "6.0.0",
+    "@capacitor/haptics": "6.0.0",
+    "@capacitor/ios": "^6.0.0",
+    "@capacitor/keyboard": "6.0.0",
+    "@capacitor/status-bar": "6.0.0",
+    "dotenv": "^16.4.5",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "rehype-raw": "^7.0.0",
+    "uuid": "^9.0.1"
+  }
+}
