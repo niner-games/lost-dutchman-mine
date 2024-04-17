@@ -3,13 +3,12 @@ import CurrentTime from "./CurrentTime";
 import DayBoard from "./DayBoard";
 
 function Clock() {
-
-    return (
-        <div>
-            <CurrentTime />
-            <DayBoard />
-        </div>
-    )
+  return (
+    <div>
+      <CurrentTime />
+      <DayBoard />
+    </div>
+  );
 }
 
 export default Clock;

@@ -9,17 +9,26 @@
     "asar": true,
     "mac": {
       "category": "public.app-category.games",
-      "target": ["dmg", "zip"],
+      "target": [
+        "dmg",
+        "zip"
+      ],
       "icon": "./src/favicon512.png"
     },
-    "linux":{
+    "linux": {
       "category": "Game",
-      "target": ["deb", "tar.gz"],
+      "target": [
+        "deb",
+        "tar.gz"
+      ],
       "icon": "./src/favicon.png"
     },
-    "win":{
+    "win": {
       "publisherName": "Niner Games",
-      "target": ["msi", "zip"],
+      "target": [
+        "msi",
+        "zip"
+      ],
       "icon": "./src/favicon.png"
     }
   },
@@ -27,15 +36,15 @@
     "dev": "electron-forge start",
     "build": "electron-forge make",
     "build:web:mac": "electron-forge make && cp index.html ./.webpack/arm64/renderer && cp ./src/favicon512.png ./.webpack/arm64/renderer/main_window/favicon.png",
-    "build:web:linux": "electron-forge make && cp index.html ./.webpack/renderer && cp ./src/favicon.png ./.webpack/renderer/main_window",
+    "build:web:linux": "electron-forge make && cp index.html ./.webpack/x64/renderer && cp ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "build:web:win": "electron-forge make && copy index.html ./.webpack/x64/renderer && copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "build:dir": "electron-builder --dir",
     "build:dist": "electron-builder",
     "copy:redirection:mac": "cp index.html ./.webpack/arm64/renderer",
-    "copy:redirection:linux": "cp index.html ./.webpack/renderer",
+    "copy:redirection:linux": "cp index.html ./.webpack/x64/renderer",
     "copy:redirection:win": "copy index.html ./.webpack/x64/renderer",
     "copy:favicon:mac": "cp ./src/favicon512.png ./.webpack/arm64/renderer/main_window/favicon.png",
-    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/renderer/main_window",
+    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "copy:favicon:win": "copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
     "publish": "electron-forge publish",
     "test": "jest",

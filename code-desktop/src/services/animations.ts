@@ -50,26 +50,26 @@ const right6 = new Image();
 right6.src = right006;
 
 export const animations: AnimationsEngine = {
-    down: {
-        idle: [idle001Down],
-    },
-    up: {
-        idle: [idle001Up],
-    },
-    left: {
-        idle: [idle001Left],
-        move: [left1, left2, left3, left4, left5, left6],
-    },
-    right: {
-        idle: [idle001Right],
-        move: [right1, right2, right3, right4, right5, right6],
-    },
-}
+  down: {
+    idle: [idle001Down],
+  },
+  up: {
+    idle: [idle001Up],
+  },
+  left: {
+    idle: [idle001Left],
+    move: [left1, left2, left3, left4, left5, left6],
+  },
+  right: {
+    idle: [idle001Right],
+    move: [right1, right2, right3, right4, right5, right6],
+  },
+};
 
 export const animationSpeed = 150;
 export const modifier = 0.00001;
 export const directions = {
-    NONE: {idx: 0, name: 'down', vec: {x: 0, y: 0}},
-    RIGHT: {idx: 1, name: 'right', vec: {x: 1, y: 0}},
-    LEFT: {idx: 2, name: 'left', vec: {x: -1, y: 0}},
-}
+  NONE: { idx: 0, name: "down", vec: { x: 0, y: 0 } },
+  RIGHT: { idx: 1, name: "right", vec: { x: 1, y: 0 } },
+  LEFT: { idx: 2, name: "left", vec: { x: -1, y: 0 } },
+};

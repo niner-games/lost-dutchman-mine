@@ -7,7 +7,4 @@ townBackground.src = town;
 const mapBackground = new Image();
 mapBackground.src = map;
 
-export {
-    townBackground,
-    mapBackground,
-};
+export { townBackground, mapBackground };

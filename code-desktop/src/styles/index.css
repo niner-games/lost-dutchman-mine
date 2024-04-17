@@ -1,13 +1,12 @@
 @font-face {
-  font-family: 'lostPixelisedFont-regular';
-  src: URL('../fonts/lostPixelizedFont.ttf') format('truetype'),
-  URL('../fonts/lostPixelizedFont.woff') format('woff')
-  URL('../fonts/lostPixelizedFont.woff2') format('woff2');
+  font-family: "lostPixelisedFont-regular";
+  src: URL("../fonts/lostPixelizedFont.ttf") format("truetype"),
+    URL("../fonts/lostPixelizedFont.woff") format("woff")
+      URL("../fonts/lostPixelizedFont.woff2") format("woff2");
 }
 
-
 body {
-  font-family: 'lostPixelisedFont-regular';
+  font-family: "lostPixelisedFont-regular";
   margin: 0;
   padding: 0;
   background-color: #000;
@@ -22,7 +21,7 @@ body {
   user-select: none;
   font-size: 36px;
   line-height: 42px;
-  color: #CFAE6D;
+  color: #cfae6d;
 }
 
 body:focus {

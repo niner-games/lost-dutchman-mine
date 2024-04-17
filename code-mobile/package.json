@@ -26,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.45",
+    "@types/uuid": "^9.0.8",
     "git-cz": "^4.9.0",
     "typescript": "^5.1.3"
   },
