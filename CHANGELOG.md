@@ -6,7 +6,9 @@ Lost Dutchman Mine Change Log
 
 - Bug #154: Fix size of windows build (MadejaMaciej)
 
+- Enh #159: Force device orientation on mobile apps to landscape (MadejaMaciej)
 - Enh #153: Specify email and homepage fields in package.json (MadejaMaciej)
+- Enh #20: Tweak mobile code to make it to work (MadejaMaciej)
 
 0.2.2 April 21, 2024
 -------------------
