@@ -1,21 +1,18 @@
 class Character {
-    constructor() {
-
-        if (this) {
-            this.start();
-            requestAnimationFrame(this.update);
-        }
+  constructor() {
+    if (this) {
+      this.start();
+      requestAnimationFrame(this.update);
     }
+  }
 
-    start() {
+  start() {}
 
+  update(tick: number) {
+    if (this) {
+      requestAnimationFrame(this.update);
     }
-
-    update(tick: number) {
-        if (this) {
-            requestAnimationFrame(this.update);
-        }
-    }
+  }
 }
 
 export default Character;

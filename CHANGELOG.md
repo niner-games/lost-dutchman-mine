@@ -4,6 +4,8 @@ Lost Dutchman Mine Change Log
 0.2.2 April 21, 2024
 -------------------
 
+- Ref #151: Run linter and formatter on codebases (MadejaMaciej)
+
 - Bug #116: Add favicon in web version (MadejaMaciej)
 - Bug #115: Change app icon in build (MadejaMaciej)
 - Bug #111: Fix sounds on web version (MadejaMaciej)

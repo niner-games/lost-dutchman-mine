@@ -1,4 +1,3 @@
-
 import Player from "../classes/player";
 
 const player = new Player();

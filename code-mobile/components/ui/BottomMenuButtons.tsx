@@ -15,19 +15,25 @@ import joystick from "../../images/ui/joystick.png";
 import { BottomMenuButtonsProps } from "../../types/menu";
 
 function BottomMenuButtons({ setOpened }: BottomMenuButtonsProps) {
-
-    return (
-        <div style={{
-            display: 'flex'
-        }}>
-            <InGameButton backgroundImage={btn1} image={coin} />
-            <InGameButton backgroundImage={btn2} image={player} />
-            <InGameButton backgroundImage={btn3} image={pan} />
-            <InGameButton backgroundImage={btn4} image={pickaxe} />
-            <InGameButton backgroundImage={btn5} image={gun} />
-            <InGameButton backgroundImage={btn6} image={joystick} callback={setOpened} valueToPass='pause' />
-        </div>
-    )
+  return (
+    <div
+      style={{
+        display: "flex",
+      }}
+    >
+      <InGameButton backgroundImage={btn1} image={coin} />
+      <InGameButton backgroundImage={btn2} image={player} />
+      <InGameButton backgroundImage={btn3} image={pan} />
+      <InGameButton backgroundImage={btn4} image={pickaxe} />
+      <InGameButton backgroundImage={btn5} image={gun} />
+      <InGameButton
+        backgroundImage={btn6}
+        image={joystick}
+        callback={setOpened}
+        valueToPass="pause"
+      />
+    </div>
+  );
 }
 
 export default BottomMenuButtons;

@@ -9,23 +9,26 @@ import hindi from "../language/hi";
 import ukrainian from "../language/uk";
 
 const languageContext: any = {
-    en: english,
-    pl: polish,
-    de: german,
-    es: spanish,
-    fr: french,
-    it: italian,
-    sx: silesian,
-    hi: hindi,
-    uk: ukrainian
-}
+  en: english,
+  pl: polish,
+  de: german,
+  es: spanish,
+  fr: french,
+  it: italian,
+  sx: silesian,
+  hi: hindi,
+  uk: ukrainian,
+};
 
 export const setText = (directory: string, text: string) => {
-    const lang = window.localStorage.getItem('language') || 'en';
+  const lang = window.localStorage.getItem("language") || "en";
 
-    if (!languageContext[lang] || !languageContext[lang][directory]) {
-        return languageContext.en[directory][text];
-    }
-    
-    return languageContext[lang][directory][text] || languageContext.en[directory][text];
-}
+  if (!languageContext[lang] || !languageContext[lang][directory]) {
+    return languageContext.en[directory][text];
+  }
+
+  return (
+    languageContext[lang][directory][text] ||
+    languageContext.en[directory][text]
+  );
+};

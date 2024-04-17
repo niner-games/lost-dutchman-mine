@@ -18,24 +18,24 @@ import startup from "./startup/de.json";
 import time from "./time/de.json";
 
 const lang = {
-    assay,
-    bank,
-    credits,
-    doctor,
-    end,
-    events,
-    health,
-    jail,
-    mercantile,
-    mines,
-    newspaper,
-    options,
-    other,
-    river,
-    saloon,
-    stable,
-    startup,
-    time
-}
+  assay,
+  bank,
+  credits,
+  doctor,
+  end,
+  events,
+  health,
+  jail,
+  mercantile,
+  mines,
+  newspaper,
+  options,
+  other,
+  river,
+  saloon,
+  stable,
+  startup,
+  time,
+};
 
 export default lang;
