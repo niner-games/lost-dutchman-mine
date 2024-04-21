@@ -96,8 +96,10 @@
     "versiony": "2.0.1"
   },
   "keywords": [],
+  "homepage": "https://ninergames.com",
   "author": {
-    "name": "Niner Games"
+    "name": "Niner Games",
+    "email": "info@ninergames.com"
   },
   "license": "MIT",
   "dependencies": {
