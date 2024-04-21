@@ -1,12 +1,17 @@
 {
   "name": "lost-dutchman-mine",
   "productName": "Lost Dutchman Mine",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Lost Dutchman Mine",
   "main": ".webpack/main",
   "build": {
     "appId": "ldm",
     "asar": true,
+    "files": [
+      "!*.*",
+      "!**/*",
+      ".webpack/**/*"
+    ],
     "mac": {
       "category": "public.app-category.games",
       "target": [

@@ -1,6 +1,11 @@
 Lost Dutchman Mine Change Log
 =============================
 
+0.2.3 May 5, 2024
+-------------------
+
+- Bug #154: Fix size of windows build (MadejaMaciej)
+
 0.2.2 April 21, 2024
 -------------------
 
