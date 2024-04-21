@@ -16,6 +16,11 @@
     "commit": "node incrementVersion.js && git add . && git cz",
     "commit:plain": "git add . && git cz"
   },
+  "homepage": "https://ninergames.com",
+  "author": {
+    "name": "Niner Games",
+    "email": "info@ninergames.com"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "expo": "~50.0.8",
