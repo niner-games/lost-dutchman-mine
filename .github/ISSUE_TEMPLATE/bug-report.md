@@ -1,7 +1,7 @@
 ---
 name: Bug report
-about: Bug report
-title: 
+about: Create a report to help us improve or fix something
+title: ''
 labels: bug
 assignees: MadejaMaciej
 

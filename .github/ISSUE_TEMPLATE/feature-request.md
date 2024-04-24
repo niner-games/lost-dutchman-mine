@@ -1,7 +1,7 @@
 ---
 name: Feature request
-about: Some new functionality
-title: 
+about: Suggest and idea, new feature or functionality for this project
+title: ''
 labels: feature
 assignees: MadejaMaciej
 
