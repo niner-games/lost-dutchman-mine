@@ -6,6 +6,7 @@
 - Bug #169: Fix crawler not getting title on web version (MadejaMaciej)
 - Bug #154: Fix size of windows build (MadejaMaciej)
 
+- Enh #172: Bundle assets using capacitor not web (MadejaMaciej)
 - Enh #167: Extend walking functionality to use additional keys (MadejaMaciej)
 - Enh #159: Force device orientation on mobile apps to landscape (MadejaMaciej)
 - Enh #153: Specify email and homepage fields in package.json (MadejaMaciej)
