@@ -158,15 +158,20 @@ class Player extends Character {
       const lastAnimation = tick - lastAnimationPlayed;
       lastTick = tick;
       let dir = directions.NONE;
-      if (this.keyPressed === "ArrowLeft") {
+      if (this.keyPressed === "ArrowLeft" || this.keyPressed === "a") {
         dir = directions.LEFT;
       }
 
-      if (this.keyPressed === "ArrowRight") {
+      if (this.keyPressed === "ArrowRight" || this.keyPressed === "d") {
         dir = directions.RIGHT;
       }
 
-      if (this.keyPressed === "ArrowRight" || this.keyPressed === "ArrowLeft") {
+      if (
+        this.keyPressed === "ArrowRight" ||
+        this.keyPressed === "ArrowLeft" ||
+        this.keyPressed === "a" ||
+        this.keyPressed === "d"
+      ) {
         this.handleArrowMovement(delta, dir, tick, lastAnimation);
       } else {
         if (this.traveling) {
