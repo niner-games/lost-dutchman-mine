@@ -2,6 +2,7 @@
 
 ## 0.2.3 May 5, 2024
 
+- Bug #169: Fix crawler not getting title on web version (MadejaMaciej)
 - Bug #154: Fix size of windows build (MadejaMaciej)
 
 - Enh #167: Extend walking functionality to use additional keys (MadejaMaciej)
