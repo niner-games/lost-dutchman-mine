@@ -2,6 +2,7 @@
 
 ## 0.2.3 May 5, 2024
 
+- Bug #171: Fix redirection to not change URL (MadejaMaciej)
 - Bug #169: Fix crawler not getting title on web version (MadejaMaciej)
 - Bug #154: Fix size of windows build (MadejaMaciej)
 
