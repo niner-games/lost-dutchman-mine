@@ -1,17 +1,15 @@
-Lost Dutchman Mine Change Log
-=============================
+# Lost Dutchman Mine Change Log
 
-0.2.3 May 5, 2024
--------------------
+## 0.2.3 May 5, 2024
 
 - Bug #154: Fix size of windows build (MadejaMaciej)
 
+- Enh #167: Extend walking functionality to use additional keys (MadejaMaciej)
 - Enh #159: Force device orientation on mobile apps to landscape (MadejaMaciej)
 - Enh #153: Specify email and homepage fields in package.json (MadejaMaciej)
 - Enh #20: Tweak mobile code to make it to work (MadejaMaciej)
 
-0.2.2 April 21, 2024
--------------------
+## 0.2.2 April 21, 2024
 
 - Ref #151: Run linter and formatter on codebases (MadejaMaciej)
 
@@ -34,8 +32,7 @@ Lost Dutchman Mine Change Log
 - Enh #23: Implement changing city map to terrain map when reaching bands (MadejaMaciej)
 - Enh #18: Transfer code to mobile version (MadejaMaciej)
 
-0.2.1 March 25, 2024
--------------------
+## 0.2.1 March 25, 2024
 
 - Opt #100: Optimization of player script and animation frames (MadejaMaciej)
 
@@ -57,8 +54,7 @@ Lost Dutchman Mine Change Log
 - Enh #50: Detect system default language (MadejaMaciej)
 - Enh #44: Change country codes to flags (MadejaMaciej)
 
-0.0.2 March 19, 2024
--------------------
+## 0.0.2 March 19, 2024
 
 - Bug #66: Fix player moving in menu and pause screen (MadejaMaciej)
 - Bug #40: Fix player resizing with change of window height (MadejaMaciej)
@@ -72,8 +68,7 @@ Lost Dutchman Mine Change Log
 - Enh #16: Added load game possibility (MadejaMaciej)
 - Enh #15: Added save game possibility (MadejaMaciej)
 
-0.0.1 March 10, 2024
--------------------
+## 0.0.1 March 10, 2024
 
 - Bug #8: Get rid off type errors in native app (MadejaMaciej)
 - Bug #6: Get rid off file is not a module error (MadejaMaciej)
