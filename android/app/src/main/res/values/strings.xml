@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8' ?>
 <resources>
-    <string name="app_name">lost-dutchman-mine</string>
-    <string name="title_activity_main">lost-dutchman-mine</string>
+    <string name="app_name">Lost Dutchman Mine</string>
+    <string name="title_activity_main">Lost Dutchman Mine</string>
     <string name="package_name">com.lostdutchmanmine.app</string>
     <string name="custom_url_scheme">com.lostdutchmanmine.app</string>
 </resources>
