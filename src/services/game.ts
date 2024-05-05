@@ -31,8 +31,8 @@ export const mainLoop = async (
   player.drawPlayer(context, windowDimensions);
 
   if (
-    windowDimensions.width === window.innerWidth &&
-    windowDimensions.height === window.innerHeight
+    windowDimensions.width === document.documentElement.clientWidth &&
+    windowDimensions.height === document.documentElement.clientHeight
   ) {
     requestAnimationFrame((tick) =>
       mainLoop(tick, context, width, height, windowDimensions)

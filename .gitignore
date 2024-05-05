@@ -95,3 +95,4 @@ dist/
 package-lock.json
 yarn.lock
 *.code-workspace
+android/app/release/output-metadata.json

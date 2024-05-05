@@ -1,5 +1,6 @@
 export const getWindowDimensions = () => {
-  const { innerWidth: width, innerHeight: height } = window;
+  const { clientWidth: width, clientHeight: height } = document.documentElement;
+
   return {
     width,
     height,

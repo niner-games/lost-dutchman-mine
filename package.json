@@ -1,7 +1,7 @@
 {
   "name": "lost-dutchman-mine",
   "productName": "Lost Dutchman Mine",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Lost Dutchman Mine",
   "main": ".webpack/main",
   "build": {

@@ -23,8 +23,8 @@ function Main() {
   const [lastUpdate, setLastUpdate] = useState(new Date().getTime());
   // Variable to store window dimensions and adjust what we see accordingly
   const [windowDimensions, setWindowDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
+    height: document.documentElement.clientHeight,
+    width: document.documentElement.clientWidth,
   });
   // Variable to store current screen
   const [screen, setScreen] = useState(
