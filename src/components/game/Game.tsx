@@ -92,8 +92,8 @@ function Game({
       <div
         style={{
           height: "4.90740740740741vh",
-          marginLeft: "5%",
-          marginRight: "5%",
+          marginLeft: "vw",
+          marginRight: "5vw",
         }}
       >
         <Text text={info} classes="red info left no-vertical-margin" />

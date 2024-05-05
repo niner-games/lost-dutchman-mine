@@ -5,20 +5,20 @@ function MarginOverlay({ left = false }) {
     if (left) {
       return {
         zIndex: 1000,
-        position: "fixed",
+        position: "absolute",
         left: 0,
         height: "100vh",
-        width: "5%",
+        width: "5vw",
         background: "#000",
       };
     }
 
     return {
       zIndex: 1000,
-      position: "fixed",
+      position: "absolute",
       height: "100vh",
       right: 0,
-      width: "5%",
+      width: "5vw",
       background: "#000",
     };
   }, [left]);
