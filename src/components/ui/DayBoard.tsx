@@ -10,6 +10,7 @@ function DayBoard() {
       <h3
         style={{
           textAlign: "center",
+          margin: 0,
         }}
       >
         MONDAY

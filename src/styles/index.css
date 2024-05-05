@@ -39,10 +39,6 @@ body:focus {
   color: #fff;
 }
 
-.board-pickaxe {
-  width: 70px;
-}
-
 .absolute {
   position: absolute;
 }
@@ -111,4 +107,18 @@ body:focus {
 
 .custom--dropdown-container {
   cursor: pointer;
+}
+
+.title-on-board {
+  text-align: center;
+  margin: 0;
+  margin-top: -2vh;
+}
+
+.board-pickaxe img {
+  width: 4vw;
+}
+
+.trademark {
+  color: hsl(0deg 0% 5.49%);
 }

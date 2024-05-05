@@ -94,14 +94,18 @@ function Game({
       <div
         style={{
           height: "4.90740740740741vh",
-          marginLeft: "vw",
+          marginLeft: "5vw",
           marginRight: "5vw",
         }}
       >
         <Text text={info} classes="red info left no-vertical-margin" />
       </div>
       <canvas ref={canvasRef} id="game-canvas" />
-      <GameMenu setOpened={setOpened} gameState={savedGame} />
+      <GameMenu
+        setOpened={setOpened}
+        gameState={savedGame}
+        windowDimensions={windowDimensions}
+      />
     </div>
   );
 }
