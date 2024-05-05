@@ -10,5 +10,6 @@ export type PauseScreenProps = {
   setOpened: Function;
   loadGame: Function;
   saveGame: Function;
+  removeGame: Function;
   initialGameName?: string;
 };
