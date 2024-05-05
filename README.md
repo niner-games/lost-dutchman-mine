@@ -5,10 +5,10 @@
         <img width="437" height="300" src="https://github.com/niner-games/lost-dutchman-mine/assets/2903392/721d35d7-3da3-4438-a373-a6954603aae9" alt="Logo of Niner Games company">
     </a><br />
     <a href="https://www.electronjs.org/" target="_blank">
-        <img width="304" height="200" src="https://cdn.freebiesupply.com/logos/large/2x/electron-4-logo-png-transparent.png" alt="Logo of Electron framework" />
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/electron-4-logo-png-transparent.png" alt="Logo of Electron framework" />
     </a><br />
     <a href="https://capacitorjs.com/" target="_blank">
-        <img width="455" height="70" src="https://capacitorjs.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-light.6f15363c.png&w=256&q=75" alt="Capacitor framework" />
+        <img src="https://capacitorjs.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-light.6f15363c.png&w=256&q=75" alt="Capacitor framework" />
     </a><br /><br /><br />
 </p>
 <h1 align="center">
