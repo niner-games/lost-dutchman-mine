@@ -5,10 +5,12 @@
       URL("../fonts/lostPixelizedFont.woff2") format("woff2");
 }
 
+html,
 body {
   font-family: "lostPixelisedFont-regular";
   margin: 0;
   padding: 0;
+  overflow: hidden !important;
   background-color: #000;
   overflow-y: hidden;
   overflow-x: hidden;

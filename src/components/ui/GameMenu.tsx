@@ -9,13 +9,13 @@ function GameMenu({ gameState, setOpened }: InGameMenuProps) {
   return (
     <div
       style={{
-        position: "fixed",
+        position: "absolute",
         bottom: 0,
-        width: "100%",
+        width: "90vw",
         height: "43.7037037037037vh",
         display: "flex",
-        marginLeft: "5%",
-        marginRight: "5%",
+        marginLeft: "5vw",
+        marginRight: "5vw",
         // TODO: remove background once have image
         background: "#c08d49",
         // TODO: add background image
