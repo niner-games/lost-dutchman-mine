@@ -13,6 +13,7 @@ function Game({
   windowDimensions,
   saveGame,
   loadGame,
+  removeGame,
 }: SaveGameProps) {
   const ratio = useMemo(() => 12.7675752773, []);
   // Height of the background
@@ -81,6 +82,7 @@ function Game({
         saveGame={saveGame}
         loadGame={loadGame}
         initialGameName={savedGame.saveName}
+        removeGame={removeGame}
       />
     );
   }

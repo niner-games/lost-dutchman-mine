@@ -51,6 +51,34 @@ function Main() {
   // Variable to store error messages
   const [error, setError] = useState("");
 
+  const removeSave = useCallback(
+    (uuid: string) => {
+      // Get saved games from local storage
+      const gamesToLoad: string | undefined =
+        window.localStorage.getItem("saved-games");
+
+      // If there are no saved games, show error message
+      if (!gamesToLoad) {
+        setError("noGamesSaved");
+        return;
+      }
+
+      try {
+        // If there are saved games, parse them and filter the one we want to remove
+        const games: SavedGame[] = JSON.parse(gamesToLoad);
+
+        const gamesToSave = games.filter((game) => game.uuid !== uuid);
+
+        const stringifiedGames = JSON.stringify(gamesToSave);
+        window.localStorage.setItem("saved-games", stringifiedGames);
+      } catch (e) {
+        setError("fileCorrupted");
+        return;
+      }
+    },
+    [setError]
+  );
+
   // Function to save game
   const saveGame = useCallback(
     (gameName: string) => {
@@ -260,6 +288,7 @@ function Main() {
         setGameState={setGameState}
         windowDimensions={windowDimensions}
         loadGame={loadGame}
+        removeGame={removeSave}
       />
     );
   }
@@ -271,6 +300,7 @@ function Main() {
         inMenu={true}
         setOpened={setScreen}
         loadGame={loadGame}
+        removeGame={removeSave}
       />
     );
   }

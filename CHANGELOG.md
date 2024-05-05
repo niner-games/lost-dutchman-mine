@@ -5,6 +5,8 @@
 - Bug #178: Fix for player to be able to move in mobile version (MadejaMaciej)
 - Bug #177: Fix for menu and other parts not visible in mobile version (MadejaMaciej)
 
+- Enh #179: Allow users to remove the game from saved game list (MadejaMaciej)
+
 ## 0.2.3 May 5, 2024
 
 - Bug #171: Fix redirection to not change URL (MadejaMaciej)

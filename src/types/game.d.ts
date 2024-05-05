@@ -55,6 +55,7 @@ export type Directions = {
 
 export interface GameProps extends GameAndDimension {
   setGameState: React.Dispatch<React.SetStateAction<SavedGame>>;
+  removeGame: Function;
 }
 
 export interface SaveGameProps extends GameProps {

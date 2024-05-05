@@ -8,6 +8,7 @@ function PauseScreen({
   inMenu = false,
   loadGame,
   initialGameName = "",
+  removeGame,
 }: PauseScreenProps) {
   const [savedGames, setSavedGames] = useState([]);
   const [chosenGame, setChosenGame] = useState("");
@@ -75,7 +76,15 @@ function PauseScreen({
       >
         Load game
       </button>
-      <button disabled={chosenGame === ""}>Remove game</button>
+      <button
+        disabled={chosenGame === ""}
+        onClick={() => {
+          removeGame(chosenGame);
+          getSavedGames();
+        }}
+      >
+        Remove game
+      </button>
       <button
         onClick={() => {
           if (inMenu) {
