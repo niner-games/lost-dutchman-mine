@@ -1,5 +1,9 @@
 # Lost Dutchman Mine Change Log
 
+## 0.2.4 May 19, 2024
+
+- Bug #178: Fix for player to be able to move in mobile version (MadejaMaciej)
+
 ## 0.2.3 May 5, 2024
 
 - Bug #171: Fix redirection to not change URL (MadejaMaciej)

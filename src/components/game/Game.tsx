@@ -52,6 +52,10 @@ function Game({
       player.mouseMoveHandler(e, windowDimensions.width, canvasWidth)
     );
 
+    document.addEventListener("touchstart", (e) =>
+      player.mouseMoveHandler(e.touches[0], windowDimensions.width, canvasWidth)
+    );
+
     return () => {
       document.removeEventListener("keydown", (e) =>
         player.setKeyPressed(e.key)
@@ -59,6 +63,13 @@ function Game({
       document.removeEventListener("keyup", (e) => player.setKeyPressed(null));
       document.removeEventListener("click", (e) =>
         player.mouseMoveHandler(e, windowDimensions.width, canvasWidth)
+      );
+      document.removeEventListener("touchstart", (e) =>
+        player.mouseMoveHandler(
+          e.touches[0],
+          windowDimensions.width,
+          canvasWidth
+        )
       );
     };
   }, [windowDimensions, canvasWidth, opened]);
