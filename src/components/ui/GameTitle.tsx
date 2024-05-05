@@ -2,13 +2,9 @@ import React, { useMemo } from "react";
 import { setText } from "../../context/language";
 import { ResizeUIProps } from "../../types/menu";
 
-function GameTitle({ windowDimensions }: ResizeUIProps) {
+function GameTitle({ widthPixels }: ResizeUIProps) {
   const ratio = useMemo(() => 60.3376 / 50.1747, []);
-  const widthPixels = useMemo(
-    () => (1134.9712917023096663815226689478 * windowDimensions.width) / 3840,
-    [windowDimensions]
-  );
-  const fontSize = useMemo(() => widthPixels / 5.7586, [widthPixels]);
+  const fontSize = useMemo(() => widthPixels / 9, [widthPixels]);
 
   return (
     <div>

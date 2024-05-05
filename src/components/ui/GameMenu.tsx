@@ -23,17 +23,27 @@ function GameMenu({ gameState, setOpened, windowDimensions }: InGameMenuProps) {
       }}
     >
       <Termometer />
-      <div>
+      <div
+        style={{
+          marginLeft: "5vw",
+        }}
+      >
         <div
           style={{
             display: "flex",
-            maxHeight: "70%",
+            width: "69vw",
+            justifyContent: "space-around",
           }}
         >
           <GameBoard windowDimensions={windowDimensions} />
-          <Clock />
+          <Clock windowDimensions={windowDimensions} />
         </div>
-        <div>
+        <div
+          style={{
+            bottom: "5%",
+            position: "absolute",
+          }}
+        >
           <BottomMenuButtons setOpened={setOpened} />
         </div>
       </div>
