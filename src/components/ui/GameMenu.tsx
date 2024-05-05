@@ -5,7 +5,7 @@ import Clock from "./Clock";
 import BottomMenuButtons from "./BottomMenuButtons";
 import { InGameMenuProps } from "../../types/menu";
 
-function GameMenu({ gameState, setOpened }: InGameMenuProps) {
+function GameMenu({ gameState, setOpened, windowDimensions }: InGameMenuProps) {
   return (
     <div
       style={{
@@ -27,9 +27,10 @@ function GameMenu({ gameState, setOpened }: InGameMenuProps) {
         <div
           style={{
             display: "flex",
+            maxHeight: "70%",
           }}
         >
-          <GameBoard />
+          <GameBoard windowDimensions={windowDimensions} />
           <Clock />
         </div>
         <div>

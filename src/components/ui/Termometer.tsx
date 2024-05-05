@@ -6,6 +6,7 @@ function Termometer() {
     <div
       style={{
         position: "relative",
+        marginLeft: "3vw",
       }}
     >
       <img
@@ -18,6 +19,8 @@ function Termometer() {
           bottom: "2.5%",
           left: "0%",
           height: "95%",
+          WebkitFilter: "drop-shadow(3px 3px 3px #222)",
+          filter: "drop-shadow(3px 3px 3px #222)",
         }}
       />
       {/* Bar of termometer */}

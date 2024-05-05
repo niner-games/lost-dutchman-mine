@@ -27,8 +27,18 @@ export type BottomMenuButtonsProps = {
   setOpened: Function;
 };
 
+export type GameTitle = {
+  parentWidth: number;
+  parentHeight: number;
+};
+
+export type ResizeUIProps = {
+  windowDimensions: WindowDimensions;
+};
+
 export interface InGameMenuProps extends BottomMenuButtonsProps {
   gameState: SavedGame;
+  windowDimensions: WindowDimensions;
 }
 
 export interface MenuButtonProps extends TextProps {
