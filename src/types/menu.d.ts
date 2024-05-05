@@ -33,7 +33,8 @@ export type GameTitle = {
 };
 
 export type ResizeUIProps = {
-  windowDimensions: WindowDimensions;
+  windowDimensions?: WindowDimensions;
+  widthPixels?: number;
 };
 
 export interface InGameMenuProps extends BottomMenuButtonsProps {

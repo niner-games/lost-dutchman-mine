@@ -12,6 +12,9 @@ function InGameButton({
   const styles = useMemo(() => {
     const styleToSave: InGameButtonStyles = {
       cursor: "pointer",
+      width: "5vw",
+      height: "5vw",
+      filter: "drop-shadow(rgb(0, 0, 0) 5px 5px 2px)",
     };
 
     if (backgroundImg) {
@@ -38,7 +41,7 @@ function InGameButton({
       {image ? (
         <img
           style={{
-            width: "50px",
+            width: "100%",
           }}
           src={image}
           alt="Button"

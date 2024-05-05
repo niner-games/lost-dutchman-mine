@@ -19,6 +19,8 @@ function BottomMenuButtons({ setOpened }: BottomMenuButtonsProps) {
     <div
       style={{
         display: "flex",
+        justifyContent: "space-between",
+        width: "65vw",
       }}
     >
       <InGameButton backgroundImage={btn1} image={coin} />
