@@ -10,23 +10,25 @@
     "files": [
       "!*.*",
       "!**/*",
+      "build/**/*",
       ".webpack/**/*"
     ],
+    "directories": {
+      "buildResources": "build"
+    },
     "mac": {
       "category": "public.app-category.games",
       "target": [
         "dmg",
         "zip"
-      ],
-      "icon": "./src/favicon512.png"
+      ]
     },
     "linux": {
       "category": "Game",
       "target": [
         "deb",
         "tar.gz"
-      ],
-      "icon": "./src/favicon.png"
+      ]
     },
     "win": {
       "publisherName": "Niner Games",
@@ -41,7 +43,6 @@
     "dev": "electron-forge start",
     "dev:android": "npx cap sync && npx cap open android",
     "dev:ios": "npx cap sync && npx cap open ios",
-    "build": "electron-forge make",
     "build:android": "npx cap copy && npx cap copy android && npx cap open android",
     "build:ios": "npx cap copy && npx cap copy ios && npx cap open ios",
     "build:web:mac": "electron-forge make && cp index.html ./.webpack/arm64/renderer && cp ./src/favicon512.png ./.webpack/arm64/renderer/main_window/favicon.png && cp .htaccess ./.webpack/arm64/renderer",
@@ -49,16 +50,6 @@
     "build:web:win": "electron-forge make && copy index.html ./.webpack/x64/renderer && copy ./src/favicon.png ./.webpack/x64/renderer/main_window && copy .htaccess ./.webpack/x64/renderer",
     "build:dir": "electron-builder --dir",
     "build:dist": "electron-builder",
-    "copy:redirection:mac": "cp index.html ./.webpack/arm64/renderer",
-    "copy:redirection:linux": "cp index.html ./.webpack/x64/renderer",
-    "copy:redirection:win": "copy index.html ./.webpack/x64/renderer",
-    "copy:htaccess:mac": "cp .htaccess ./.webpack/arm64/renderer",
-    "copy:htaccess:linux": "cp .htaccess ./.webpack/x64/renderer",
-    "copy:htaccess:win": "copy .htaccess ./.webpack/x64/renderer",
-    "copy:favicon:mac": "cp ./src/favicon512.png ./.webpack/arm64/renderer/main_window/favicon.png",
-    "copy:favicon:linux": "cp ./src/favicon.png ./.webpack/x64/renderer/main_window",
-    "copy:favicon:win": "copy ./src/favicon.png ./.webpack/x64/renderer/main_window",
-    "publish": "electron-forge publish",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "eslint \"**/*.{js,ts}\"",
