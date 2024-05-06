@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useEffect } from "react";
+import { App } from "@capacitor/app";
 import SaveList from "./SaveList";
 import { PauseScreenProps } from "../../types/pause";
 
@@ -96,6 +97,11 @@ function PauseScreen({
       </button>
       <button
         onClick={() => {
+          try {
+            App.exitApp();
+          } catch (e) {
+            // Do nothing
+          }
           window.close();
         }}
       >

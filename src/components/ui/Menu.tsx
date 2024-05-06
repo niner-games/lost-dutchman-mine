@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { App } from "@capacitor/app";
 import Language from "./Language";
 import MenuButton from "../common/MenuButton";
 import Title from "../common/Title";
@@ -6,6 +7,11 @@ import { MenuProps } from "../../types/menu";
 
 function Menu({ setScreen, setLanguage }: MenuProps) {
   const quitGame = useCallback(() => {
+    try {
+      App.exitApp();
+    } catch (e) {
+      // Do nothing
+    }
     window.close();
   }, []);
 
