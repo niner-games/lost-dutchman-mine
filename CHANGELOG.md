@@ -8,6 +8,7 @@
 - Bug #99: Buttons and clock's dial mis-aligned (MadejaMaciej)
 - Bug #86: Fix status bar image (MadejaMaciej)
 
+- Enh #185: Turn off mobile app by clicking button (MadejaMaciej)
 - Enh #179: Allow users to remove the game from saved game list (MadejaMaciej)
 - Enh #170: Support for Hebrew language and translations (MadejaMaciej)
 - Enh #117: Set app's icon for the mobile version (MadejaMaciej)
