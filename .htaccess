@@ -1,2 +1,4 @@
 RewriteEngine On
-RewriteRule ^(.*)$ /main_window/index.html
+RewriteCond %{REQUEST_URI} !^/main_window/index.html$
+RewriteCond %{REQUEST_URI} !\.(gif|jpe?g|png|css|svg|wav|mp3|js)$
+RewriteRule .* /main_window/index.html [L,R=302]
