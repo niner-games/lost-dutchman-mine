@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from "react";
 import CustomSelect from "../common/CustomSelect";
-import { setText } from "../../context/language";
 import { LanguageProps } from "../../types/menu";
 import en from "../../images/ui/flags/gb.svg";
 import pl from "../../images/ui/flags/pl.svg";
@@ -11,6 +10,7 @@ import it from "../../images/ui/flags/it.svg";
 import sx from "../../images/ui/flags/sil-coat.png";
 import hi from "../../images/ui/flags/in.svg";
 import uk from "../../images/ui/flags/ua.svg";
+import he from "../../images/ui/flags/he.svg";
 
 function Language({ setLanguage }: LanguageProps) {
   const options = useMemo(() => {
@@ -50,6 +50,10 @@ function Language({ setLanguage }: LanguageProps) {
       {
         label: <img src={uk} alt="uk" className="flag-select" />,
         value: "uk",
+      },
+      {
+        label: <img src={he} alt="he" className="flag-select" />,
+        value: "he",
       },
     ];
   }, []);

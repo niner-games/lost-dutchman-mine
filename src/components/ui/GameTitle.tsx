@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { setText } from "../../context/language";
 import { ResizeUIProps } from "../../types/menu";
 
 function GameTitle({ widthPixels }: ResizeUIProps) {
