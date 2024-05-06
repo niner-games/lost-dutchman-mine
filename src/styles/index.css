@@ -122,3 +122,30 @@ body:focus {
 .trademark {
   color: hsl(0deg 0% 5.49%);
 }
+
+.day-board {
+  background: #503000;
+  padding: 0px 10px;
+  min-width: 13vw;
+  box-shadow: #000 4px 4px;
+}
+
+.day-board-text {
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  color: #fff;
+}
+
+@media screen and (max-width: 900px) and (max-height: 600px) {
+  .day-board {
+    padding: 0px 5px;
+    box-shadow: #000 2px 2px;
+  }
+
+  .day-board-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

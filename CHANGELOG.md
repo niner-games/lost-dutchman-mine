@@ -4,6 +4,7 @@
 
 - Bug #178: Fix for player to be able to move in mobile version (MadejaMaciej)
 - Bug #177: Fix for menu and other parts not visible in mobile version (MadejaMaciej)
+- Bug #147: Fix for calendar's label is mis-aligned (MadejaMaciej)
 - Bug #99: Buttons and clock's dial mis-aligned (MadejaMaciej)
 - Bug #86: Fix status bar image (MadejaMaciej)
 
