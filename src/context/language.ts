@@ -7,6 +7,7 @@ import italian from "../language/it";
 import silesian from "../language/sx";
 import hindi from "../language/hi";
 import ukrainian from "../language/uk";
+import hebrew from "../language/he";
 
 const languageContext: any = {
   en: english,
@@ -18,17 +19,25 @@ const languageContext: any = {
   sx: silesian,
   hi: hindi,
   uk: ukrainian,
+  he: hebrew,
 };
 
 export const setText = (directory: string, text: string) => {
   const lang = window.localStorage.getItem("language") || "en";
 
   if (!languageContext[lang] || !languageContext[lang][directory]) {
-    return languageContext.en[directory][text];
+    return { text: languageContext.en[directory][text], additionalClass: "" };
   }
 
-  return (
-    languageContext[lang][directory][text] ||
-    languageContext.en[directory][text]
-  );
+  if (languageContext[lang][directory][text]) {
+    return {
+      text: languageContext[lang][directory][text],
+      additionalClass: lang === "he" ? "hebrew" : "",
+    };
+  }
+
+  return {
+    text: languageContext.en[directory][text],
+    additionalClass: "",
+  };
 };

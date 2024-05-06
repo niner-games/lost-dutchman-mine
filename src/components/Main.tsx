@@ -7,7 +7,6 @@ import SplashScreen from "./ui/SplashScreen";
 import StartGame from "./ui/StartGame";
 import player from "../services/player";
 import mercantile from "../services/mercantile";
-import { setText } from "../context/language";
 import { getWindowDimensions } from "../utils/window";
 import { isElectron } from "../utils/isElectron";
 import { SavedGame } from "../types/game";

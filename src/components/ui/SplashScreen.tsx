@@ -86,8 +86,11 @@ function SplashScreen({
         }}
       ></audio>
       <Subtitle
-        text={setText("startup", "(press any key or click to continue)")}
-        classes="white absolute top-with-small-margin no-margin left z-index-1 text-shadow"
+        text={setText("startup", "(press any key or click to continue)").text}
+        classes={`white absolute top-with-small-margin no-margin left z-index-1 text-shadow ${
+          setText("startup", "(press any key or click to continue)")
+            .additionalClass
+        }`}
       />
       <Subtitle
         text={version}

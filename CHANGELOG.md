@@ -9,6 +9,7 @@
 - Bug #86: Fix status bar image (MadejaMaciej)
 
 - Enh #179: Allow users to remove the game from saved game list (MadejaMaciej)
+- Enh #170: Support for Hebrew language and translations (MadejaMaciej)
 - Enh #117: Set app's icon for the mobile version (MadejaMaciej)
 
 ## 0.2.3 May 5, 2024
