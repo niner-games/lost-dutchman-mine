@@ -65,6 +65,10 @@ export type DownMenuButtonProps = {
   valueToPass?: unknown;
 };
 
+export type InfoBoxProps = {
+  setOpened: Function;
+};
+
 export type StartScreenProps = {
   setScreen: React.Dispatch<React.SetStateAction<string>>;
 };
