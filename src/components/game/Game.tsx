@@ -8,6 +8,7 @@ import player from "../../services/player";
 import { SaveGameProps } from "../../types/game";
 import { ratio } from "../../utils/ratio";
 import { heightModifier } from "../../utils/modifiers";
+import { getWindowDimensions } from "../../utils/window";
 
 function Game({
   savedGame,
@@ -30,7 +31,9 @@ function Game({
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (opened === "game") {
+    const { width, height } = getWindowDimensions();
+
+    if (opened === "game" && width > height) {
       const canvas = canvasRef.current;
       if (canvas) {
         const context = canvas.getContext("2d");

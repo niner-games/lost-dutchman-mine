@@ -11,6 +11,7 @@
 - Enh #185: Turn off mobile app by clicking button (MadejaMaciej)
 - Enh #179: Allow users to remove the game from saved game list (MadejaMaciej)
 - Enh #170: Support for Hebrew language and translations (MadejaMaciej)
+- Enh #160: Lock device orientation in desktop and web (MadejaMaciej)
 - Enh #146: Set icon for linux build (MadejaMaciej)
 - Enh #117: Set app's icon for the mobile version (MadejaMaciej)
 - Enh #64: Moving player while not changing screen background (MadejaMaciej)

@@ -5,6 +5,7 @@ import PauseScreen from "./ui/PauseScreen";
 import Game from "./game/Game";
 import SplashScreen from "./ui/SplashScreen";
 import StartGame from "./ui/StartGame";
+import OrientationLockError from "./ui/OrientationLockError";
 import player from "../services/player";
 import mercantile from "../services/mercantile";
 import windowController from "../services/windowController";
@@ -249,6 +250,14 @@ function Main() {
       }, 20);
 
       timeoutId = id;
+
+      const { width, height } = getWindowDimensions();
+
+      if (width <= height) {
+        player.startPause();
+      } else {
+        player.stopPause();
+      }
     }
 
     window.addEventListener("resize", handleResize);
@@ -266,51 +275,60 @@ function Main() {
     document.title = "Lost Dutchman Mine";
   }, [language]);
 
-  if (screen === "browser-welcome-screen") {
-    return <StartGame setScreen={setScreen} />;
-  }
+  const displayCorrectScreen = () => {
+    if (screen === "browser-welcome-screen") {
+      return <StartGame setScreen={setScreen} />;
+    }
 
-  if (screen === "splash") {
-    return (
-      <SplashScreen
-        windowDimensions={windowDimensions}
-        opacity={opacity}
-        setOpacity={setSplashScreenOpacity}
-        setScreen={setScreen}
-        setLastUpdate={setLastUpdate}
-        isOwnOpacity={isOwnOpacity}
-        setIsOwnOpacity={setIsOwnOpacity}
-        lastUpdate={lastUpdate}
-      />
-    );
-  }
+    if (screen === "splash") {
+      return (
+        <SplashScreen
+          windowDimensions={windowDimensions}
+          opacity={opacity}
+          setOpacity={setSplashScreenOpacity}
+          setScreen={setScreen}
+          setLastUpdate={setLastUpdate}
+          isOwnOpacity={isOwnOpacity}
+          setIsOwnOpacity={setIsOwnOpacity}
+          lastUpdate={lastUpdate}
+        />
+      );
+    }
 
-  if (screen === "game") {
-    return (
-      <Game
-        savedGame={gameState}
-        saveGame={saveGame}
-        setGameState={setGameState}
-        windowDimensions={windowDimensions}
-        loadGame={loadGame}
-        removeGame={removeSave}
-      />
-    );
-  }
+    if (screen === "game") {
+      return (
+        <Game
+          savedGame={gameState}
+          saveGame={saveGame}
+          setGameState={setGameState}
+          windowDimensions={windowDimensions}
+          loadGame={loadGame}
+          removeGame={removeSave}
+        />
+      );
+    }
 
-  if (screen === "load") {
-    return (
-      <PauseScreen
-        saveGame={saveGame}
-        inMenu={true}
-        setOpened={setScreen}
-        loadGame={loadGame}
-        removeGame={removeSave}
-      />
-    );
-  }
+    if (screen === "load") {
+      return (
+        <PauseScreen
+          saveGame={saveGame}
+          inMenu={true}
+          setOpened={setScreen}
+          loadGame={loadGame}
+          removeGame={removeSave}
+        />
+      );
+    }
 
-  return <Menu setScreen={setScreen} setLanguage={setLanguage} />;
+    return <Menu setScreen={setScreen} setLanguage={setLanguage} />;
+  };
+
+  return (
+    <>
+      {displayCorrectScreen()}
+      <OrientationLockError />
+    </>
+  );
 }
 
 export default Main;
