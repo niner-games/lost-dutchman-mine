@@ -3,6 +3,8 @@ import { Item } from "./items";
 type PlayerPosition = {
   x: number;
   y: number;
+  left: number;
+  top: number;
 };
 
 export type SavedGame = {

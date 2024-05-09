@@ -3,16 +3,16 @@ import GameTitle from "./GameTitle";
 import pickaxeAndShover from "../../images/ui/pickaxe_and_shovel1.png";
 import board from "../../images/ui/down_board.png";
 import { ResizeUIProps } from "../../types/menu";
+import { gameBoardRatio } from "../../utils/ratio";
 
 function GameBoard({ windowDimensions }: ResizeUIProps) {
-  const ratio = useMemo(() => 1847 / 551, []);
   const widthPixels = useMemo(() => {
     let width = (1847 * windowDimensions.width) / 3840;
-    const height = width / ratio;
+    const height = width / gameBoardRatio;
 
     if (height / windowDimensions.height > 0.23) {
       const tempHeight = windowDimensions.height * 0.23;
-      width = tempHeight * ratio;
+      width = tempHeight * gameBoardRatio;
     }
 
     if (width / windowDimensions.width > 0.46) {
@@ -34,7 +34,7 @@ function GameBoard({ windowDimensions }: ResizeUIProps) {
         maxHeight: "23vh",
         maxWidth: "46vw",
         width: `${widthPixels}px`,
-        height: `${widthPixels / ratio}px`,
+        height: `${widthPixels / gameBoardRatio}px`,
         justifyContent: "space-between",
         padding: "3vh 2vw 0",
       }}

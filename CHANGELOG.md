@@ -13,6 +13,7 @@
 - Enh #170: Support for Hebrew language and translations (MadejaMaciej)
 - Enh #146: Set icon for linux build (MadejaMaciej)
 - Enh #117: Set app's icon for the mobile version (MadejaMaciej)
+- Enh #64: Moving player while not changing screen background (MadejaMaciej)
 
 ## 0.2.3 May 5, 2024
 

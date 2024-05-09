@@ -8,16 +8,15 @@ import {
 import { walkingSound } from "../services/sounds";
 import { WindowDimensions, Directions } from "../types/game";
 import { Item } from "../types/items";
+import { ratio, dimensionsRatio } from "../utils/ratio";
+import { heightModifier } from "../utils/modifiers";
+import { bandBorder, moveScreenVerticalBorder } from "../utils/borders";
 
 let lastTick = 0;
 let lastAnimationPlayed = 0;
-const bandBorder = 0.01;
-const heightModifier = 0.5138888888888889;
 
 class Player extends Character {
   speed = 3;
-  backgroundSpeed = 1.0;
-  ratio = 3.0;
   x = 0.5;
   y = 0.9;
   top = 0.9;
@@ -29,6 +28,8 @@ class Player extends Character {
   traveling = false;
   toPoint = this.x;
   paused = false;
+  reachedLeftBorder = false;
+  reachedRightBorder = false;
   location = "town";
   foodInventory: Array<Array<Item | null>> = [
     [null, null, null, null, null, null, null, null, null, null],
@@ -67,6 +68,10 @@ class Player extends Character {
     this.left = newLeft;
   };
 
+  setTop = (newTop: number) => {
+    this.top = newTop;
+  };
+
   setDirection = (newDirection: string) => {
     this.direction = newDirection;
   };
@@ -91,9 +96,18 @@ class Player extends Character {
     this.toolInventory = newToolInventory;
   };
 
+  setReachedBorder = (leftBorder: boolean = true, toValue: boolean = true) => {
+    if (leftBorder) {
+      this.reachedLeftBorder = toValue;
+    } else {
+      this.reachedRightBorder = toValue;
+    }
+  };
+
   getX = () => this.x;
   getY = () => this.y;
   getLeft = () => this.left;
+  getTop = () => this.top;
   getDirection = () => this.direction;
   getCurrentAnimation = () => this.currentAnimation;
   getFrame = () => this.frame;
@@ -105,6 +119,8 @@ class Player extends Character {
     return {
       x: this.getX(),
       y: this.getY(),
+      left: this.getLeft(),
+      top: this.getTop(),
     };
   };
 
@@ -142,7 +158,7 @@ class Player extends Character {
     }
     const widthRatio = player.width / player.height;
     const canvasHeight = windowDimensions.height * heightModifier;
-    const dimensions = canvasHeight / this.ratio;
+    const dimensions = canvasHeight / dimensionsRatio;
     const imgHeight = dimensions;
     const imgWidth = dimensions * widthRatio;
     const height = (canvasHeight - imgHeight) * this.y;
@@ -187,30 +203,79 @@ class Player extends Character {
     requestAnimationFrame(this.update);
   };
 
+  calculateNewPosition = (delta: number, dir: Directions) => {
+    const staticHeight = document.documentElement.clientHeight * heightModifier;
+    const canvasWidth = ratio * staticHeight;
+    const seenPercentage = document.documentElement.clientWidth / canvasWidth;
+
+    if (dir.name === "left") {
+      if (this.left <= moveScreenVerticalBorder) {
+        if (this.reachedLeftBorder) {
+          return {
+            field: "left",
+            position: (this.left +=
+              dir.vec.x * this.speed * delta * modifier * (1 / seenPercentage)),
+          };
+        } else {
+          return {
+            field: "x",
+            position: (this.x += dir.vec.x * this.speed * delta * modifier),
+          };
+        }
+      } else {
+        return {
+          field: "left",
+          position: (this.left +=
+            dir.vec.x * this.speed * delta * modifier * (1 / seenPercentage)),
+        };
+      }
+    } else if (dir.name === "right") {
+      if (this.left >= 1 - moveScreenVerticalBorder) {
+        if (this.reachedRightBorder) {
+          return {
+            field: "left",
+            position: (this.left +=
+              dir.vec.x * this.speed * delta * modifier * (1 / seenPercentage)),
+          };
+        } else {
+          return {
+            field: "x",
+            position: (this.x += dir.vec.x * this.speed * delta * modifier),
+          };
+        }
+      } else {
+        return {
+          field: "left",
+          position: (this.left +=
+            dir.vec.x * this.speed * delta * modifier * (1 / seenPercentage)),
+        };
+      }
+    }
+
+    return { field: "none", position: 0 };
+  };
+
   handleMouseMovement = (
     lastAnimation: number,
     tick: number,
     delta: number
   ) => {
     this.startWalkingSound();
+    let dir = directions.NONE;
+    if (this.direction === "left") {
+      dir = directions.LEFT;
+    }
+
+    if (this.direction === "right") {
+      dir = directions.RIGHT;
+    }
 
     if (lastAnimation > animationSpeed) {
       if (
-        this.direction ===
-        (this.toPoint < this.x
-          ? "left"
-          : this.toPoint > this.x
-          ? "right"
-          : "down")
+        animations[this.direction][this.currentAnimation].length - 1 >
+        this.frame
       ) {
-        if (
-          animations[this.direction][this.currentAnimation].length - 1 >
-          this.frame
-        ) {
-          this.frame += 1;
-        } else {
-          this.frame = 0;
-        }
+        this.frame += 1;
       } else {
         this.frame = 0;
       }
@@ -219,40 +284,83 @@ class Player extends Character {
     }
 
     this.currentAnimation = "move";
-    const newPosition =
-      this.x + (this.toPoint < this.x ? -1 : 1) * this.speed * delta * modifier;
 
-    if (this.direction === "left" && this.toPoint >= newPosition) {
-      this.x = this.toPoint;
+    const newPosition = this.calculateNewPosition(delta, dir);
+
+    const staticHeight = document.documentElement.clientHeight * heightModifier;
+    const canvasWidth = ratio * staticHeight;
+    const seenPercentage = document.documentElement.clientWidth / canvasWidth;
+    const halfOfSeenPercentage = seenPercentage / 2;
+    const startSeeingPoint = this.x - halfOfSeenPercentage;
+    const toPointToLeft = this.toPoint - startSeeingPoint;
+    const calculatedScreenToPosition = toPointToLeft / seenPercentage;
+    const leftToX = this.left * seenPercentage;
+    const actualXToPoint = this.toPoint + halfOfSeenPercentage - leftToX;
+    const actualXToRightPoint = this.toPoint - (leftToX - halfOfSeenPercentage);
+
+    let finished = false;
+    if (this.direction === "left") {
+      if (newPosition.field === "x") {
+        if (actualXToPoint >= newPosition.position) {
+          this.x = actualXToPoint;
+          finished = true;
+        }
+      } else if (newPosition.field === "left") {
+        if (calculatedScreenToPosition >= newPosition.position) {
+          this.left = calculatedScreenToPosition;
+          finished = true;
+        }
+      }
+    }
+
+    if (this.direction === "right") {
+      if (newPosition.field === "x") {
+        if (actualXToRightPoint <= newPosition.position) {
+          this.x = actualXToRightPoint;
+          finished = true;
+        }
+      } else if (newPosition.field === "left") {
+        if (calculatedScreenToPosition <= newPosition.position) {
+          this.left = calculatedScreenToPosition;
+          finished = true;
+        }
+      }
+    }
+
+    if (finished) {
       this.frame = 0;
       this.currentAnimation = "idle";
       this.traveling = false;
     }
 
-    if (this.direction === "right" && this.toPoint <= newPosition) {
-      this.x = this.toPoint;
-      this.frame = 0;
-      this.currentAnimation = "idle";
-      this.traveling = false;
+    if (this.traveling) {
+      if (newPosition.field === "left") {
+        this.left = newPosition.position;
+      } else if (newPosition.field === "x") {
+        this.x = newPosition.position;
+      }
     }
-
-    this.x += (this.toPoint < this.x ? -1 : 1) * this.speed * delta * modifier;
 
     if (this.location === "town") {
       this.currentAnimation = "move";
-      if (this.direction === "left" && this.x < 0 + bandBorder) {
+
+      if (this.direction === "left" && this.left < bandBorder) {
         this.location = "map";
         this.x = 0.44;
         this.y = 0.5;
+        this.left = 0.5;
+        this.top = 0.5;
         this.currentAnimation = "idle";
         this.frame = 0;
         this.traveling = false;
       }
 
-      if (this.direction === "right" && this.x > 1 - bandBorder) {
+      if (this.direction === "right" && this.left > 1 - bandBorder) {
         this.location = "map";
         this.x = 0.44;
         this.y = 0.5;
+        this.left = 0.5;
+        this.top = 0.5;
         this.currentAnimation = "idle";
         this.frame = 0;
         this.traveling = false;
@@ -288,23 +396,34 @@ class Player extends Character {
       lastAnimationPlayed = tick;
     }
 
-    this.x += dir.vec.x * this.speed * delta * modifier;
+    const newPosition = this.calculateNewPosition(delta, dir);
+
+    if (newPosition.field === "left") {
+      this.left = newPosition.position;
+    } else if (newPosition.field === "x") {
+      this.x = newPosition.position;
+    }
 
     this.direction = dir.name;
 
     if (this.location === "town") {
       this.currentAnimation = "move";
-      if (this.direction === "left" && this.x < 0 + bandBorder) {
+
+      if (this.direction === "left" && this.left < bandBorder) {
         this.location = "map";
         this.x = 0.44;
         this.y = 0.5;
+        this.top = 0.44;
+        this.left = 0.5;
         this.currentAnimation = "idle";
       }
 
-      if (this.direction === "right" && this.x > 1 - bandBorder) {
+      if (this.direction === "right" && this.left > 1 - bandBorder) {
         this.location = "map";
         this.x = 0.44;
         this.y = 0.5;
+        this.top = 0.44;
+        this.left = 0.5;
         this.currentAnimation = "idle";
       }
     } else if (this.location === "map") {
@@ -320,7 +439,7 @@ class Player extends Character {
       const playerPoint = (screenAt + e.clientX - center) / canvasWidth;
       this.traveling = true;
       this.toPoint = playerPoint;
-      this.direction = e.clientX - center < 0 ? "left" : "right";
+      this.direction = e.clientX - width * this.left < 0 ? "left" : "right";
     }
   };
 
