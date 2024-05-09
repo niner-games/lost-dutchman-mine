@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { ResizeUIProps } from "../../types/menu";
+import { gameTitleRatio } from "../../utils/ratio";
 
 function GameTitle({ widthPixels }: ResizeUIProps) {
-  const ratio = useMemo(() => 60.3376 / 50.1747, []);
   const fontSize = useMemo(() => widthPixels / 9, [widthPixels]);
 
   return (
@@ -11,7 +11,7 @@ function GameTitle({ widthPixels }: ResizeUIProps) {
         className="title-on-board"
         style={{
           fontSize: `${fontSize}px`,
-          lineHeight: `${fontSize / ratio}px`,
+          lineHeight: `${fontSize / gameTitleRatio}px`,
         }}
       >
         Lost <br /> Dutchman <br />
@@ -20,7 +20,7 @@ function GameTitle({ widthPixels }: ResizeUIProps) {
           className="trademark"
           style={{
             fontSize: `${fontSize / 3}px`,
-            lineHeight: `${fontSize / ratio / 3}px`,
+            lineHeight: `${fontSize / gameTitleRatio / 3}px`,
           }}
         >
           TM

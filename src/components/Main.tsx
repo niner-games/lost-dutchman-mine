@@ -7,6 +7,7 @@ import SplashScreen from "./ui/SplashScreen";
 import StartGame from "./ui/StartGame";
 import player from "../services/player";
 import mercantile from "../services/mercantile";
+import windowController from "../services/windowController";
 import { getWindowDimensions } from "../utils/window";
 import { isElectron } from "../utils/isElectron";
 import { SavedGame } from "../types/game";
@@ -38,6 +39,8 @@ function Main() {
     playerPosition: {
       x: player.getX(),
       y: player.getY(),
+      left: player.getLeft(),
+      top: player.getTop(),
     },
     foodInventory: player.getFoodInventory(),
     toolInventory: player.getToolInventory(),
@@ -181,6 +184,8 @@ function Main() {
           if (game.uuid === uuid) {
             player.setX(game.playerPosition.x);
             player.setY(game.playerPosition.y);
+            player.setLeft(game.playerPosition.left);
+            player.setTop(game.playerPosition.top);
             player.setPlayerLocation(game.location);
             if (game.mercantileItems)
               mercantile.setInventory(game.mercantileItems);
@@ -239,6 +244,7 @@ function Main() {
 
       // Only update window dimensions after 10ms of no resize events so we don't rerender it too often
       const id = setTimeout(() => {
+        windowController.setNewWindowDimensions(getWindowDimensions());
         setWindowDimensions(getWindowDimensions());
       }, 20);
 

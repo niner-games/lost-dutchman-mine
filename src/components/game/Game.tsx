@@ -6,6 +6,8 @@ import PauseScreen from "../ui/PauseScreen";
 import { mainLoop } from "../../services/game";
 import player from "../../services/player";
 import { SaveGameProps } from "../../types/game";
+import { ratio } from "../../utils/ratio";
+import { heightModifier } from "../../utils/modifiers";
 
 function Game({
   savedGame,
@@ -15,10 +17,9 @@ function Game({
   loadGame,
   removeGame,
 }: SaveGameProps) {
-  const ratio = useMemo(() => 12.7675752773, []);
   // Height of the background
   const staticHeight = useMemo(
-    () => windowDimensions.height * 0.5138888888888889,
+    () => windowDimensions.height * heightModifier,
     [windowDimensions.height]
   );
   // Width of the background
