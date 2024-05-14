@@ -1,5 +1,9 @@
 # Lost Dutchman Mine Change Log
 
+## 0.2.5 June 2, 2024
+
+- Bug #192: Fix player not starting the same position if window dimensions change between game sessions (MadejaMaciej)
+
 ## 0.2.4 May 19, 2024
 
 - Bug #178: Fix for player to be able to move in mobile version (MadejaMaciej)
