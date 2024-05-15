@@ -8,6 +8,7 @@
 - Bug #99: Buttons and clock's dial mis-aligned (MadejaMaciej)
 - Bug #86: Fix status bar image (MadejaMaciej)
 
+- Enh #195: Add translation for hebrew in error orientation screen (MadejaMaciej)
 - Enh #185: Turn off mobile app by clicking button (MadejaMaciej)
 - Enh #179: Allow users to remove the game from saved game list (MadejaMaciej)
 - Enh #170: Support for Hebrew language and translations (MadejaMaciej)
